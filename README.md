@@ -4,8 +4,8 @@ This repository contains multiple sub-projects and folders, each addressing a di
 # python_1 
 
 - **Project1** – A Python-based tool for analizing the odd and even numbers.
-- ** This is my code for the Project1:**
-- <pre>'''print("This is a program that evauates your  input number whether it is an odd or even!")
+-  This is my code for the Project1:
+- <pre>```print("This is a program that evauates your  input number whether it is an odd or even!")
 condition=True
 num=0
 try:
@@ -32,7 +32,7 @@ except Exception :
     print("Enter a number please!")
 
 
-''' </pre>
+``` </pre>
 
 ---
 ## Installation and Setup
