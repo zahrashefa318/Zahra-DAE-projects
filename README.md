@@ -1,11 +1,18 @@
 # DAE Projects
 This repository contains multiple sub-projects and folders, each addressing a different task, demo, or feature.
-## Semester1
+## First semester:
+# html_1
+# logic_1
+# prompt_engineerin_1
 # python_1 
+# python_2
+# unix_1
+# unix_2
+# version_control_1
 
 - **Project1** – A Python-based tool for analizing the odd and even numbers.
--  This is my code for the Project1:
-- ```print("This is a program that evauates your  input number whether it is an odd or even!")
+```python
+print("This is a program that evauates your  input number whether it is an odd or even!")
 condition=True
 num=0
 try:
@@ -32,6 +39,7 @@ except Exception :
     print("Enter a number please!")
 
 
+
 ```
 
 ---
@@ -55,5 +63,4 @@ cd python_1
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# Install dependencies
-pip install -r requirements.txt
+
