@@ -1,6 +1,6 @@
 from flask import Flask 
 from .auth import authRouts
-from .simpleArithmetic import SimpleArithmetic
+from .views import views
 from .dbExtension import db
 
 def flaskApp():
@@ -10,8 +10,8 @@ def flaskApp():
     db.init_app(app)
     with app.app_context():
         db.create_all()
-    obj=SimpleArithmetic()
+
     
-    
+    app.register_blueprint(views)
     app.register_blueprint(authRouts )
     return app
