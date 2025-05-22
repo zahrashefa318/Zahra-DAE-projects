@@ -8,4 +8,4 @@ def multiplactionTable():
     if request.method == 'POST':
         number=request.form.get('numberInput')
         result=simpleArithmetic(number)
-        return render_template('result.html', resultlist=result)
+        return render_template('result.html', resultTable=result)
