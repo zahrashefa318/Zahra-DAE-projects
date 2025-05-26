@@ -6,7 +6,7 @@
     
     text-align: center;
 }
-
+ 
 .grid-container {
       display: grid;
       grid-template-columns: repeat(3, 1fr); /* 3 columns */
@@ -52,3 +52,27 @@
       font-size: 18px;
       cursor: pointer;
     }
+
+    /* result page/multiplaction tabel */
+
+    .table-container {
+    height: 100%;
+    overflow-y:scroll;
+    text-align: center;
+  }
+
+  table thead th {
+    position: sticky;
+    top:0px;
+    background-color: #f8f9fa; /* Light background for the header */
+    z-index: 2;
+    text-align: center;
+  }
+
+  .mycontainer{
+    width: 50%;
+    height:70%;
+    margin-top: -10%;
+  }
+
+  

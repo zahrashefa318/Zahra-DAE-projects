@@ -17,7 +17,7 @@
       <span class="close-btn" onclick="closePopup()">&times;</span>
       <h2>Multiplication Table Generator</h2>
       <p>Input a number to see its multiplication table</p>
-      <form action="#" method="POST">
+      <form action="{{url_for('views.multiplactionTable')}}" method="POST">
   <div class="form-group">
     <input type="number" class="form-control" id="exampleInput" name="numberInput" placeholder="Enter a number" required>
   </div>
