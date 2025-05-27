@@ -31,14 +31,14 @@
       <span class="close-btn" onclick="closePopup2()">&times;</span>
       <h2>Summation</h2>
       <p>Add numbers to calculate their sum.</p>
-       <form method="POST" action="/calculate">
+       <form method="POST">
       <div class="mb-3">
-        <input type="number" step="any" id="sumInput" class="form-control" name="number" placeholder="Enter a number" required>
+        <input type="number" step="any" id="sumInput" class="form-control" name="number" placeholder="Enter a number">
       </div>
 
       <div class="d-flex gap-2">
-        <button type="submit" name="action" onclick="getNumbers()" value="add" class="btn btn-success">Add</button>
-        <button type="submit" name="action" onclick="sendNumbers()" value="result" class="btn btn-primary">Show Result</button>
+        <button type="button" name="action" onclick="addNumber()" value="add" class="btn btn-success">Add</button>
+        <button type="button" name="action" onclick="sendNumbers()" value="result" class="btn btn-primary">Show Result</button>
       </div>
     </form>
     </div>
@@ -171,12 +171,12 @@
     function closePopup6() {
       document.getElementById('popup6').style.display = 'none';
     }
-    /*  An onclick function for getting multiple user entry from a text input: */
+    /*   Onclick function for getting multiple user entry from a text input and sen them to python module: */
     let numbers = [];
 
         function addNumber() {
-            const input = document.getElementById('numberInput');
-            const number = input.value;
+            let input = document.getElementById('sumInput');
+            let number = input.value;
             if (number) {
                 numbers.push(Number(number));
                 input.value = '';
@@ -184,21 +184,23 @@
         }
 
         function sendNumbers() {
-            fetch('/process', {
+            const formData = new FormData();
+            formData.append('numbers', JSON.stringify(numbers));
+
+            fetch('/gettingNumbers', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ numbers: numbers })
+                body: formData
             })
-            .then(response => response.json())
-            .then(data => {
-                alert('Data received: ' + JSON.stringify(data));
+            .then(response => response.text())
+            .then(result => {
+                // Handle the result
             })
             .catch(error => {
                 console.error('Error:', error);
             });
-        }
+}
+
+
 
     
 
