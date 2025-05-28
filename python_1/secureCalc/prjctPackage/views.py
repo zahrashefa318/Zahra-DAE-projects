@@ -39,7 +39,7 @@ def gettingNumbers():
     """
     data = request.get_json()
     numbers = data.get('numbers', [])
-    total = sum(numbers)
+    total =arithmeticFnc.summation(numbers)
     return jsonify({'total': total})
 
 
@@ -47,3 +47,23 @@ def gettingNumbers():
 def result():
     total = request.args.get('total', type=int)
     return render_template('result.html', total=total)
+
+@views.route('/getPrecentage' , methods=['GET','POST'])
+def getPrecentage():
+    if request.method == 'POST':
+        precentage=request.form.get('input1')
+        baseValue=request.form.get('input2')
+        result=arithmeticFnc.precentageCalculator(precentage, baseValue)
+        return render_template('result.html', precentageResult=result , precentage=precentage , baseValue=baseValue)
+    
+@views.route('/getAverage', methods=['POST'])
+def getAverage():
+    data = request.get_json()
+    numbers = data.get('numbers', [])
+    average=arithmeticFnc.averageCalculator(numbers)
+    return jsonify({'average': average})
+
+@views.route('/averageResult' ,methods=['GET'])
+def avrageResult():
+    average = request.args.get('average', type=float)
+    return render_template('result.html', average=average)

@@ -19,3 +19,19 @@ class SimpleArithmetic :
         for num in self.list:
             total +=num
         return total    
+    
+    def precentageCalculator(self, precentage, baseValue):
+        self.precentage=int(precentage)
+        self. baseValue=int(baseValue)
+        result=(precentage / 100)*baseValue
+        result=round(result ,2)
+        return result
+    
+
+    def averageCalculator(self, numbers):
+        self.numbers=numbers
+        total =self.summation(numbers)
+        average=total/len(numbers)
+        average=round(average , 2)
+        return average
+        

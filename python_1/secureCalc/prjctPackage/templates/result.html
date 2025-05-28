@@ -1,10 +1,22 @@
 {% extends 'base.html' %}
 {% block title %} Result page {% endblock %}
 {% block content %}
-
-
-
-
+{% if resultTable %}
+<div class="mycontainer"><h1 style="text-align: center;">Multiplaction Table of {{number}}</h1>
+<div  class="table-container">
+    {{ resultTable | safe }}
+</div>
+</div>
+{% elif total %}
 <h1>Total Sum</h1>
     <p>The total sum of the entered numbers is: {{ total }}</p>
+
+{% elif precentageResult %}
+<p>The {{percentage}} percentage of {{baseValue}} is: {{ precentageResult }}</p>
+
+{% elif average %}
+<p>The average is: {{ average }}</p>
+
+
+{% endif %}
 {% endblock %}
