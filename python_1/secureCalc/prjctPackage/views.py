@@ -1,4 +1,4 @@
-from flask import Blueprint , request, render_template , jsonify
+from flask import Blueprint , request, render_template , jsonify, url_for, redirect
 from .SimpleArithmetic import SimpleArithmetic
 
 views=Blueprint('views', __name__)
@@ -23,7 +23,7 @@ def multiplactionTable():
         htmlTbleResult=arithmeticFnc.multiplactionTable(number)
         return render_template('result.html', resultTable=htmlTbleResult , number=number)
     
-@views.route('/gettingNumbers', methods=['POST'])
+@views.route('/gettingNumbers', methods=['POST','GET'])
 def gettingNumbers():
     """
     Processes a POST request containing a JSON payload with a list of numbers,
@@ -40,5 +40,10 @@ def gettingNumbers():
     data = request.get_json()
     numbers = data.get('numbers', [])
     total = sum(numbers)
+    return jsonify({'total': total})
+
+
+@views.route('/result' ,methods=['GET'])
+def result():
+    total = request.args.get('total', type=int)
     return render_template('result.html', total=total)
-    
