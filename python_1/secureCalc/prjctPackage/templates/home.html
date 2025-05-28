@@ -31,14 +31,14 @@
       <span class="close-btn" onclick="closePopup2()">&times;</span>
       <h2>Summation</h2>
       <p>Add numbers to calculate their sum.</p>
-       <form method="POST">
+       <form method="POST" id="summationForm">
       <div class="mb-3">
         <input type="number" step="any" id="sumInput" class="form-control" name="number" placeholder="Enter a number">
       </div>
 
       <div class="d-flex gap-2">
-        <button type="button" name="action" onclick="addNumber()" value="add" class="btn btn-success">Add</button>
-        <button type="button" name="action" onclick="sendNumbers()" value="result" class="btn btn-primary">Show Result</button>
+        <button type="button" name="action" id="addnumber" value="add" class="btn btn-success">Add</button>
+        <button type="submit" name="action" id="showResult" value="result" class="btn btn-primary">Show Result</button>
       </div>
     </form>
     </div>
@@ -172,33 +172,44 @@
       document.getElementById('popup6').style.display = 'none';
     }
     /*   Onclick function for getting multiple user entry from a text input and sen them to python module: */
-    let numbers = [];
+    document.getElementById('addnumber').addEventListener('click', function() {
+  const numberInput = document.getElementById('sumInput');
+  const number = parseInt(numberInput.value, 10);
+  if (!isNaN(number)) {
+    // Retrieve existing numbers from localStorage or initialize an empty array
+    let numbers = JSON.parse(localStorage.getItem('numbers')) || [];
+    numbers.push(number);
+    // Store the updated list back into localStorage
+    localStorage.setItem('numbers', JSON.stringify(numbers));
+    numberInput.value = ''; // Clear input field
+  } else {
+    alert('Please enter a valid number.');
+  }
+});
 
-        function addNumber() {
-            let input = document.getElementById('sumInput');
-            let number = input.value;
-            if (number) {
-                numbers.push(Number(number));
-                input.value = '';
-            }
-        }
+document.getElementById('summationForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const numbers = JSON.parse(localStorage.getItem('numbers')) || [];
+  const routeUrl = "{{ url_for('views.gettingNumbers') }}";
 
-        function sendNumbers() {
-            const formData = new FormData();
-            formData.append('numbers', JSON.stringify(numbers));
-
-            fetch('/gettingNumbers', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.text())
-            .then(result => {
-                // Handle the result
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-}
+  fetch(routeUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ numbers: numbers }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert('Numbers submitted successfully!');
+    // Optionally, clear the stored numbers after submission
+    localStorage.removeItem('numbers');
+     window.location.href = "{{ url_for('views.result') }}?total=" + data.total;
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+});
 
 
 
