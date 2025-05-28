@@ -49,7 +49,7 @@
       <span class="close-btn" onclick="closePopup3()">&times;</span>
       <h2>Percentage Calculator</h2>
       <p></p>
-      <form method="POST" action="/submit">
+      <form method="POST" action="{{url_for('views.getPrecentage')}}">
   <div class="mb-3">
     <label for="input1" class="form-label">X %</label>
     <input type="number" step="any" class="form-control" id="input1" name="input1" placeholder="Enter percentage" required>
@@ -74,13 +74,13 @@
       <span class="close-btn" onclick="closePopup4()">&times;</span>
       <h2>Average Calculator</h2>
       <p>Enter more than one numbers:</p>
-       <form method="POST" action="/calculate">
+       <form method="POST" id="averageForm">
       <div class="mb-3">
-        <input type="number" step="any" class="form-control" name="number" placeholder="Enter a number" required>
+        <input type="number" id="averageInput" step="any" class="form-control" name="number" placeholder="Enter a number">
       </div>
 
       <div class="d-flex gap-2">
-        <button type="submit" name="action" value="add" class="btn btn-success">Add</button>
+        <button type="button" id="addAverageNumsbtn" name="action" value="add" class="btn btn-success">Add</button>
         <button type="submit" name="action" value="result" class="btn btn-primary">Show average</button>
       </div>
     </form>
@@ -212,7 +212,47 @@ document.getElementById('summationForm').addEventListener('submit', function(eve
 });
 
 
+// getting numbers and sending them for average calcuating:
 
+
+document.getElementById('addAverageNumsbtn').addEventListener('click', function() {
+  const numberInput = document.getElementById('averageInput');
+  const number = parseInt(numberInput.value, 10);
+  if (!isNaN(number)) {
+    // Retrieve existing numbers from localStorage or initialize an empty array
+    let numbers = JSON.parse(localStorage.getItem('numbers')) || [];
+    numbers.push(number);
+    // Store the updated list back into localStorage
+    localStorage.setItem('numbers', JSON.stringify(numbers));
+    numberInput.value = ''; // Clear input field
+  } else {
+    alert('Please enter a valid number.');
+  }
+});
+
+document.getElementById('averageForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const numbers = JSON.parse(localStorage.getItem('numbers')) || [];
+  const routeUrl = "{{ url_for('views.getAverage') }}";
+
+  fetch(routeUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ numbers: numbers }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert('Numbers submitted successfully!');
+    // Optionally, clear the stored numbers after submission
+    localStorage.removeItem('numbers');
+     window.location.href = "{{ url_for('views.avrageResult') }}?average=" + data.average;
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+});
     
 
   </script>
