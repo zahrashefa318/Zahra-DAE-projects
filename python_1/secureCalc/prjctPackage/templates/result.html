@@ -17,6 +17,10 @@
 {% elif average %}
 <p>The average is: {{ average }}</p>
 
+{% elif remainder %}
+<p>The remainder of {{number}} divided by {{divisor}} is : {{remainder}}</p>
 
+{% elif minValue and maxValue %}
+<p>The minimum value is : {{minValue}} and the maximum value is : {{maxValue}}</p>
 {% endif %}
 {% endblock %}
