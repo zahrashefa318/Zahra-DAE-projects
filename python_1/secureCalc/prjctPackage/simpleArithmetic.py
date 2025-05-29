@@ -15,7 +15,6 @@ class SimpleArithmetic :
     def summation(self, numberList):
         self.list=numberList
         total=0
-        
         for num in self.list:
             total +=num
         return total    
@@ -23,7 +22,7 @@ class SimpleArithmetic :
     def precentageCalculator(self, precentage, baseValue):
         self.precentage=int(precentage)
         self. baseValue=int(baseValue)
-        result=(precentage / 100)*baseValue
+        result=(self.precentage / 100)*self.baseValue
         result=round(result ,2)
         return result
     
@@ -35,3 +34,14 @@ class SimpleArithmetic :
         average=round(average , 2)
         return average
         
+    def remainderCalculator(self , number , divisor):
+        self.number=int(number)
+        self.divisor=int(divisor)
+        result=self.number % self.divisor
+        return result
+    
+    def minMaxCalculator(self, numbers):
+        self.numbers=numbers
+        minValue=min(self.numbers)
+        maxValue=max(self.numbers)
+        return minValue , maxValue

@@ -93,7 +93,7 @@
       <span class="close-btn" onclick="closePopup5()">&times;</span>
       <h2>Remainder Calculator</h2>
       <p></p>
-      <form method="POST" action="/submit">
+      <form method="POST" action="{{url_for('views.remainder')}}">
   <div class="mb-3">
     <label for="input1" class="form-label">Number</label>
     <input type="number" step="any" class="form-control" id="input1" name="input1" placeholder="Enter a number" required>
@@ -118,13 +118,13 @@
       <span class="close-btn" onclick="closePopup6()">&times;</span>
       <h2>Min and Max Calculator</h2>
       <p> Enter more than two numbers:</p>
-      <form method="POST" action="/calculate">
+      <form method="POST" id="minMaxForm">
       <div class="mb-3">
-        <input type="number" step="any" class="form-control" name="number" placeholder="Enter a number" required>
+        <input type="number" id="minMaxInput" step="any" class="form-control" name="number" placeholder="Enter a number" >
       </div>
 
       <div class="d-flex gap-2">
-        <button type="submit" name="action" value="add" class="btn btn-success">Add</button>
+        <button type="button" id="minMaxAddbtn" name="action" value="add" class="btn btn-success">Add</button>
         <button type="submit" name="action" value="result" class="btn btn-primary">Show Result</button>
       </div>
     </form>
@@ -253,8 +253,48 @@ document.getElementById('averageForm').addEventListener('submit', function(event
     console.error('Error:', error);
   });
 });
-    
 
+// Getting numbers and sending them via http request into python code for MinMax calculation:
+    
+document.getElementById('minMaxAddbtn').addEventListener('click', function() {
+  const numberInput = document.getElementById('minMaxInput');
+  const number = parseInt(numberInput.value, 10);
+  if (!isNaN(number)) {
+    // Retrieve existing numbers from localStorage or initialize an empty array
+    let numbers = JSON.parse(localStorage.getItem('numbers')) || [];
+    numbers.push(number);
+    // Store the updated list back into localStorage
+    localStorage.setItem('numbers', JSON.stringify(numbers));
+    numberInput.value = ''; // Clear input field
+  } else {
+    alert('Please enter a valid number.');
+  }
+});
+
+document.getElementById('minMaxForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const numbers = JSON.parse(localStorage.getItem('numbers')) || [];
+  const routeUrl = "{{ url_for('views.gettingNumbersForMinMax') }}";
+
+  fetch(routeUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ numbers: numbers }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    alert('Numbers submitted successfully!');
+    // Optionally, clear the stored numbers after submission
+    localStorage.removeItem('numbers');
+    window.location.href = "{{ url_for('views.minMaxResult') }}?minValue=" + data.minValue + "&maxValue=" + data.maxValue;
+
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+});
   </script>
 
 {% endblock %}

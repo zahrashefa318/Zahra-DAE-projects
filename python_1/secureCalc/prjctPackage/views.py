@@ -63,7 +63,34 @@ def getAverage():
     average=arithmeticFnc.averageCalculator(numbers)
     return jsonify({'average': average})
 
-@views.route('/averageResult' ,methods=['GET'])
+@views.route('/averageResult' , methods=['GET'])
 def avrageResult():
     average = request.args.get('average', type=float)
     return render_template('result.html', average=average)
+
+@views.route('/remainder', methods=['GET','POST'])
+def remainder ():
+    if request.method == 'POST':
+        number=request.form.get('input1')
+        divisor=request.form.get('input2')
+        result=arithmeticFnc.remainderCalculator(number, divisor)
+        print(result)
+    return render_template('result.html', number=number ,divisor= divisor ,remainder= result)
+
+@views.route('/gettingNumbersForMinMax' , methods=['POST'])
+def gettingNumbersForMinMax():
+    data=request.get_json()
+    numbers=data.get('numbers',[])
+    minValue , maxValue=arithmeticFnc.minMaxCalculator(numbers)
+    print(minValue , maxValue)
+    return jsonify({'minValue':minValue ,'maxValue':maxValue})
+
+@views.route('/minMaxResult',methods=['GET'])
+def minMaxResult():
+    minv=request.args.get('minValue',type=int)
+    maxv=request.args.get('maxValue' , type=int)
+    print(maxv)
+    print("hiii")
+    return render_template('result.html',minValue=minv , maxValue=maxv)
+
+    
