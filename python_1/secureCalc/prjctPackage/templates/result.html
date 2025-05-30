@@ -1,26 +1,32 @@
 {% extends 'base.html' %}
 {% block title %} Result page {% endblock %}
 {% block content %}
-{% if resultTable %}
-<div class="mycontainer"><h1 style="text-align: center;">Multiplaction Table of {{number}}</h1>
-<div  class="table-container">
-    {{ resultTable | safe }}
+<div id="resultWraper" >
+   <div id="header" ><h1></h1></div> 
+   <div id="resultContent">
+    {% if resultTable %}
+    <div class="mycontainer" ><h1 style="text-align: center;">Multiplaction Table of {{number}}</h1>
+    <div  class="table-container">
+        {{ resultTable | safe }}
+    </div>
+    </div>
+    {% elif total %}
+    <h1>Total Sum</h1>
+        <p>The total sum of the entered numbers is: {{ total }}</p>
+
+    {% elif precentageResult %}
+    <p>The {{percentage}} percentage of {{baseValue}} is: {{ precentageResult }}</p>
+
+    {% elif average %}
+    <p>The average is: {{ average }}</p>
+
+    {% elif remainder %}
+    <p>The remainder of {{number}} divided by {{divisor}} is : {{remainder}}</p>
+
+    {% elif minValue and maxValue %}
+    <p>The minimum value is : {{minValue}} and the maximum value is : {{maxValue}}</p>
+    {% endif %}
 </div>
+<div id="resultFooter"><a href="{{url_for('authRouts.dashboard')}}">Back home</a></div>
 </div>
-{% elif total %}
-<h1>Total Sum</h1>
-    <p>The total sum of the entered numbers is: {{ total }}</p>
-
-{% elif precentageResult %}
-<p>The {{percentage}} percentage of {{baseValue}} is: {{ precentageResult }}</p>
-
-{% elif average %}
-<p>The average is: {{ average }}</p>
-
-{% elif remainder %}
-<p>The remainder of {{number}} divided by {{divisor}} is : {{remainder}}</p>
-
-{% elif minValue and maxValue %}
-<p>The minimum value is : {{minValue}} and the maximum value is : {{maxValue}}</p>
-{% endif %}
 {% endblock %}

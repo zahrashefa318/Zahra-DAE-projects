@@ -11,6 +11,7 @@
   <div class="grid-item"><button type="button" onclick="openPopup5()">Click to compute the division remainder of two numbers.</button></div>
   <div class="grid-item"><button type="button" onclick="openPopup6()">Click to specify the min and max for a group of numbers.</div>
 </div>
+<div id="logout"><label><a href="{{url_for('authRouts.logout')}}">Logout</a></label></div>
 </div>
  <div id="popup" class="popup-overlay">
     <div class="popup-content">
@@ -171,7 +172,7 @@
     function closePopup6() {
       document.getElementById('popup6').style.display = 'none';
     }
-    /*   Onclick function for getting multiple user entry from a text input and sen them to python module: */
+    /*   Onclick function for getting multiple user entry from a text input and sen them to python module for summation : */
     document.getElementById('addnumber').addEventListener('click', function() {
   const numberInput = document.getElementById('sumInput');
   const number = parseInt(numberInput.value, 10);
@@ -295,6 +296,19 @@ document.getElementById('minMaxForm').addEventListener('submit', function(event)
     console.error('Error:', error);
   });
 });
+
+// ******* This script prevents the user from navigating back after logout*****
+  function preventBack() {
+    window.history.forward();
+  }
+
+  setTimeout(preventBack, 0);
+  window.onunload = function () { null };
+
+  if (performance.navigation.type === 2) {
+    location.href = "{{url_for('basePage')}}";
+  }
+
   </script>
 
 {% endblock %}
