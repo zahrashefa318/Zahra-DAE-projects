@@ -2,6 +2,7 @@ from flask import Blueprint , render_template , request, redirect,url_for, flash
 from .dbExtension import db
 from .models import userInfo
 from werkzeug.security import check_password_hash, generate_password_hash
+from .utils import nocache
 
 authRouts=Blueprint('authRouts', __name__ )
 
@@ -45,6 +46,7 @@ def register():
 #***********The Log in routes and functions ******************
 
 @authRouts.route('/loginHome',methods=['GET','POST'])
+@nocache
 def loginHome():
     if request.method=='POST':
        email=request.form.get('email')
@@ -53,10 +55,32 @@ def loginHome():
        if exsistingUser and check_password_hash(exsistingUser.password ,password):
            session['user_id']=exsistingUser.id
            session['user_name']=exsistingUser.name
-           return render_template('home.html', name=exsistingUser.name , lastname=exsistingUser.lastname)
+           return redirect(url_for('authRouts.dashboard'))
+           
+
        else:
            flash("Your email does not exist or your password is wrong!","danger")
-           return redirect(url_for('basePage'))
+           return redirect(url_for('authRouts.loginHome'))
+    return render_template('base.html')
+
+@authRouts.route('/dashboard')
+@nocache
+def dashboard():
+    if 'user_id' not in session:
+        flash('Please log in to access this page.', 'warning')
+        return redirect(url_for('authRouts.loginHome'))
+    return render_template('home.html', name=session['user_name'])    
+
+#*********** logout route and function ************************
+
+@authRouts.route('/logout' , methods=['POST','GET'])
+def logout():
+    session.pop('user_id',None)
+    session.pop('user_name', None)
+    session.clear()
+    flash("You have been logged out !", "success")
+    return redirect(url_for('basePage'))
+
        
        
 

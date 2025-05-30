@@ -75,4 +75,12 @@
     margin-top: -10%;
   }
 
+  #resultWraper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+
+
   
