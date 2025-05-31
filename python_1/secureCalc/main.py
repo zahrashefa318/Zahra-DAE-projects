@@ -1,7 +1,7 @@
 from flask import render_template
 from prjctPackage import flaskApp
 app=flaskApp()
-@app.route('/basePage')
+@app.route('/')
 def basePage():
     """Renders the base HTML page of the application.
 

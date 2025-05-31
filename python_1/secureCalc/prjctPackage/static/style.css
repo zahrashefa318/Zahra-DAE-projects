@@ -52,8 +52,8 @@
       font-size: 18px;
       cursor: pointer;
     }
-
-    /* result page/multiplaction tabel */
+ 
+    /* result page design */
 
     .table-container {
     height: 100%;
@@ -70,15 +70,30 @@
   }
 
   .mycontainer{
-    width: 50%;
-    height:70%;
-    margin-top: -10%;
+     flex: 1 0 auto;
+      padding: 2rem;
+      background-color: #e9ecef;
+      text-align: center;
   }
 
   #resultWraper {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+      flex-direction: column;
+      height: 100%;
+  }
+  #header , #resultFooter{
+    flex: 0 0 auto;
+      padding: 1rem;
+      background-color: #f8f9fa;
+      text-align: center;
+
+  }
+  #resultContent{
+    flex: 1 0 auto;
+      padding: 2rem;
+      background-color: #e9ecef;
+      text-align: center;
+    
   }
 
 

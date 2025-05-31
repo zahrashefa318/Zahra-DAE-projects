@@ -2,16 +2,32 @@
 {% block title %} Result page {% endblock %}
 {% block content %}
 <div id="resultWraper" >
-   <div id="header" ><h1></h1></div> 
+   <div id="header" >
+    {% if resultTable %}
+    <h1 style="text-align: center;">Multiplaction Table of {{number}}</h1>
+    {% elif total %}
+    <h1 style="text-align: center;">Summation result </h1>
+    {% elif precectageResult %}
+    <h1 style="text-align: center;">Precentage result</h1>
+    {% elif average %}
+    <h1 style="text-align: center;">Average result</h1>
+    {% elif remainder %}
+    <h1 style="text-align: center;">Remainder result</h1>
+    {% elif minValue and maxValue %}
+    <h1 style="text-align: center;">Minimum and Maximum</h1>
+    {% endif %}
+   </div>
+   
+   
    <div id="resultContent">
     {% if resultTable %}
-    <div class="mycontainer" ><h1 style="text-align: center;">Multiplaction Table of {{number}}</h1>
+    <div class="mycontainer" >
     <div  class="table-container">
         {{ resultTable | safe }}
     </div>
     </div>
     {% elif total %}
-    <h1>Total Sum</h1>
+    
         <p>The total sum of the entered numbers is: {{ total }}</p>
 
     {% elif precentageResult %}

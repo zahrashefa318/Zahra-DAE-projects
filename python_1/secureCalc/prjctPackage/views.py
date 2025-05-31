@@ -1,10 +1,13 @@
-from flask import Blueprint , request, render_template , jsonify, url_for, redirect
+from flask import Blueprint , request, render_template , jsonify, url_for, redirect,flash ,session
 from .SimpleArithmetic import SimpleArithmetic
+from .utils import nocache
+
 
 views=Blueprint('views', __name__)
 arithmeticFnc=SimpleArithmetic()
 
 @views.route('/multiplactionTable', methods=['GET','POST'])
+@nocache
 def multiplactionTable():
     """Renders a multiplication table based on user input.
 
@@ -18,7 +21,10 @@ def multiplactionTable():
     Returns:
         Response: The rendered HTML page displaying the multiplication table.
     """
-    if request.method == 'POST':
+    if 'user_id' not in session:
+        flash('Please log in to access this page.', 'warning')
+        return redirect(url_for('authRouts.loginHome'))
+    elif request.method == 'POST':
         number=request.form.get('numberInput')
         htmlTbleResult=arithmeticFnc.multiplactionTable(number)
         return render_template('result.html', resultTable=htmlTbleResult , number=number)
@@ -44,13 +50,21 @@ def gettingNumbers():
 
 
 @views.route('/result' ,methods=['GET'])
+@nocache
 def result():
+    if 'user_id' not in session:
+        flash('Please log in to access this page.', 'warning')
+        return redirect(url_for('authRouts.loginHome'))
     total = request.args.get('total', type=int)
     return render_template('result.html', total=total)
 
 @views.route('/getPrecentage' , methods=['GET','POST'])
+@nocache
 def getPrecentage():
-    if request.method == 'POST':
+    if 'user_id' not in session:
+        flash('Please log in to access this page.', 'warning')
+        return redirect(url_for('authRouts.loginHome'))
+    elif request.method == 'POST':
         precentage=request.form.get('input1')
         baseValue=request.form.get('input2')
         result=arithmeticFnc.precentageCalculator(precentage, baseValue)
@@ -64,13 +78,21 @@ def getAverage():
     return jsonify({'average': average})
 
 @views.route('/averageResult' , methods=['GET'])
+@nocache
 def avrageResult():
+    if 'user_id' not in session:
+        flash('Please log in to access this page.', 'warning')
+        return redirect(url_for('authRouts.loginHome'))
     average = request.args.get('average', type=float)
     return render_template('result.html', average=average)
 
 @views.route('/remainder', methods=['GET','POST'])
+@nocache
 def remainder ():
-    if request.method == 'POST':
+    if 'user_id' not in session:
+        flash('Please log in to access this page.', 'warning')
+        return redirect(url_for('authRouts.loginHome'))
+    elif request.method == 'POST':
         number=request.form.get('input1')
         divisor=request.form.get('input2')
         result=arithmeticFnc.remainderCalculator(number, divisor)
@@ -86,11 +108,15 @@ def gettingNumbersForMinMax():
     return jsonify({'minValue':minValue ,'maxValue':maxValue})
 
 @views.route('/minMaxResult',methods=['GET'])
+@nocache
 def minMaxResult():
-    minv=request.args.get('minValue',type=int)
-    maxv=request.args.get('maxValue' , type=int)
-    print(maxv)
-    print("hiii")
+    if 'user_id' not in session:
+        flash('Please log in to access this page.', 'warning')
+        return redirect(url_for('authRouts.loginHome'))
+    minv=request.args.get('minValue', default=0,type=int)
+    maxv=request.args.get('maxValue' ,default=100, type=int)
     return render_template('result.html',minValue=minv , maxValue=maxv)
 
+
+ 
     
