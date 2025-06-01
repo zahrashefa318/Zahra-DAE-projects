@@ -7,8 +7,8 @@
     <h1 style="text-align: center;">Multiplaction Table of {{number}}</h1>
     {% elif total %}
     <h1 style="text-align: center;">Summation result </h1>
-    {% elif precectageResult %}
-    <h1 style="text-align: center;">Precentage result</h1>
+    {% elif precentageResult %}
+    <h1 style="text-align: center;">Percentage result</h1>
     {% elif average %}
     <h1 style="text-align: center;">Average result</h1>
     {% elif remainder %}
@@ -21,28 +21,33 @@
    
    <div id="resultContent">
     {% if resultTable %}
-    <div class="mycontainer" >
+    
     <div  class="table-container">
         {{ resultTable | safe }}
     </div>
-    </div>
+    
     {% elif total %}
     
-        <p>The total sum of the entered numbers is: {{ total }}</p>
+    <p style="margin-top:20%;">The total sum of the entered numbers is: </p>
+    <h1>{{ total }}</h1>
 
     {% elif precentageResult %}
-    <p>The {{percentage}} percentage of {{baseValue}} is: {{ precentageResult }}</p>
-
+    <p style="margin-top:20%;">The {{precentage}} percentage of {{baseValue}} is: </p>
+     <h1>{{ precentageResult }}</h1>
     {% elif average %}
-    <p>The average is: {{ average }}</p>
-
+    <p style="margin-top:20%;">The average is: </p>
+     <h1>{{ average }}</h1>
     {% elif remainder %}
-    <p>The remainder of {{number}} divided by {{divisor}} is : {{remainder}}</p>
-
+    <p style="margin-top:20%;">The remainder of {{number}} divided by {{divisor}} is : </p>
+     <h1>{{remainder}}</h1>
     {% elif minValue and maxValue %}
-    <p>The minimum value is : {{minValue}} and the maximum value is : {{maxValue}}</p>
+    <p style="margin-top:20%;">The minimum value is : {{minValue}} and the maximum value is : </p>
+    <h1>{{maxValue}}</h1>
     {% endif %}
 </div>
-<div id="resultFooter"><a href="{{url_for('authRouts.dashboard')}}">Back home</a></div>
+<div id="resultFooter">
+  <a href="{{ url_for('authRouts.dashboard') }}" class="btn btn-primary text-decoration-none">Back home</a>
+</div>
+
 </div>
 {% endblock %}
