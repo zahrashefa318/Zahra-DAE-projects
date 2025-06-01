@@ -95,8 +95,12 @@ def remainder ():
     elif request.method == 'POST':
         number=request.form.get('input1')
         divisor=request.form.get('input2')
-        result=arithmeticFnc.remainderCalculator(number, divisor)
-        print(result)
+        if divisor == '0':
+            flash("Not zero divisor allowed!","warning")
+            return redirect(url_for('authRouts.dashboard'))
+        else:
+            result=arithmeticFnc.remainderCalculator(number, divisor)
+            print(result)
     return render_template('result.html', number=number ,divisor= divisor ,remainder= result)
 
 @views.route('/gettingNumbersForMinMax' , methods=['POST'])
