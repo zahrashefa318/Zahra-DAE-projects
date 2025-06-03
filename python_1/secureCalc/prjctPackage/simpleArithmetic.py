@@ -35,9 +35,10 @@ class SimpleArithmetic :
         return average
         
     def remainderCalculator(self , number , divisor):
-        self.number=int(number)
-        self.divisor=int(divisor)
+        self.number=float(number)
+        self.divisor=float(divisor)
         result=self.number % self.divisor
+        result=round(result , 2)
         return result
     
     def minMaxCalculator(self, numbers):
