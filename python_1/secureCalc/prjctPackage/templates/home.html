@@ -176,15 +176,15 @@
       document.getElementById('popup6').style.display = 'none';
     }
     /*   Onclick function for getting multiple user entry from a text input and sen them to python module for summation : */
-    document.getElementById('addnumber').addEventListener('click', function() {
+   document.getElementById('addnumber').addEventListener('click', function() {
   const numberInput = document.getElementById('sumInput');
-  const number = parseInt(numberInput.value, 10);
+  const number = parseFloat(numberInput.value);
   if (!isNaN(number)) {
-    // Retrieve existing numbers from localStorage or initialize an empty array
-    let numbers = JSON.parse(localStorage.getItem('numbers')) || [];
+    // Retrieve existing numbers from sessionStorage or initialize an empty array
+    let numbers = JSON.parse(sessionStorage.getItem('numbers')) || [];
     numbers.push(number);
-    // Store the updated list back into localStorage
-    localStorage.setItem('numbers', JSON.stringify(numbers));
+    // Store the updated list back into sessionStorage
+    sessionStorage.setItem('numbers', JSON.stringify(numbers));
     numberInput.value = ''; // Clear input field
   } else {
     alert('Please enter a valid number.');
@@ -193,7 +193,7 @@
 
 document.getElementById('summationForm').addEventListener('submit', function(event) {
   event.preventDefault();
-  const numbers = JSON.parse(localStorage.getItem('numbers')) || [];
+  const numbers = JSON.parse(sessionStorage.getItem('numbers')) || [];
   const routeUrl = "{{ url_for('views.gettingNumbers') }}";
 
   fetch(routeUrl, {
@@ -206,14 +206,16 @@ document.getElementById('summationForm').addEventListener('submit', function(eve
   .then(response => response.json())
   .then(data => {
     alert('Numbers submitted successfully!');
-    // Optionally, clear the stored numbers after submission
-    localStorage.removeItem('numbers');
-     window.location.href = "{{ url_for('views.result') }}?total=" + data.total;
+    // Clear the stored numbers after submission
+    sessionStorage.removeItem('numbers');
+    // Redirect to the result page with the total
+    window.location.href = "{{ url_for('views.result') }}?total=" + data.total;
   })
   .catch(error => {
     console.error('Error:', error);
   });
 });
+
 
 
 // getting numbers and sending them for average calcuating:
@@ -223,11 +225,11 @@ document.getElementById('addAverageNumsbtn').addEventListener('click', function(
   const numberInput = document.getElementById('averageInput');
   const number = parseInt(numberInput.value, 10);
   if (!isNaN(number)) {
-    // Retrieve existing numbers from localStorage or initialize an empty array
-    let numbers = JSON.parse(localStorage.getItem('numbers')) || [];
+    // Retrieve existing numbers from sessionStorage or initialize an empty array
+    let numbers = JSON.parse(sessionStorage.getItem('numbers')) || [];
     numbers.push(number);
-    // Store the updated list back into localStorage
-    localStorage.setItem('numbers', JSON.stringify(numbers));
+    // Store the updated list back into sessionStorage
+    sessionStorage.setItem('numbers', JSON.stringify(numbers));
     numberInput.value = ''; // Clear input field
   } else {
     alert('Please enter a valid number.');
@@ -236,7 +238,7 @@ document.getElementById('addAverageNumsbtn').addEventListener('click', function(
 
 document.getElementById('averageForm').addEventListener('submit', function(event) {
   event.preventDefault();
-  const numbers = JSON.parse(localStorage.getItem('numbers')) || [];
+  const numbers = JSON.parse(sessionStorage.getItem('numbers')) || [];
   const routeUrl = "{{ url_for('views.getAverage') }}";
 
   fetch(routeUrl, {
@@ -249,14 +251,16 @@ document.getElementById('averageForm').addEventListener('submit', function(event
   .then(response => response.json())
   .then(data => {
     alert('Numbers submitted successfully!');
-    // Optionally, clear the stored numbers after submission
-    localStorage.removeItem('numbers');
-     window.location.href = "{{ url_for('views.avrageResult') }}?average=" + data.average;
+    // Clear the stored numbers after submission
+    sessionStorage.removeItem('numbers');
+    // Redirect to the result page with the average
+    window.location.href = "{{ url_for('views.avrageResult') }}?average=" + data.average;
   })
   .catch(error => {
     console.error('Error:', error);
   });
 });
+
 
 // Getting numbers and sending them via http request into python code for MinMax calculation:
     
@@ -264,11 +268,11 @@ document.getElementById('minMaxAddbtn').addEventListener('click', function() {
   const numberInput = document.getElementById('minMaxInput');
   const number = parseInt(numberInput.value, 10);
   if (!isNaN(number)) {
-    // Retrieve existing numbers from localStorage or initialize an empty array
-    let numbers = JSON.parse(localStorage.getItem('numbers')) || [];
+    // Retrieve existing numbers from sessionStorage or initialize an empty array
+    let numbers = JSON.parse(sessionStorage.getItem('numbers')) || [];
     numbers.push(number);
-    // Store the updated list back into localStorage
-    localStorage.setItem('numbers', JSON.stringify(numbers));
+    // Store the updated list back into sessionStorage
+    sessionStorage.setItem('numbers', JSON.stringify(numbers));
     numberInput.value = ''; // Clear input field
   } else {
     alert('Please enter a valid number.');
@@ -277,7 +281,7 @@ document.getElementById('minMaxAddbtn').addEventListener('click', function() {
 
 document.getElementById('minMaxForm').addEventListener('submit', function(event) {
   event.preventDefault();
-  const numbers = JSON.parse(localStorage.getItem('numbers')) || [];
+  const numbers = JSON.parse(sessionStorage.getItem('numbers')) || [];
   const routeUrl = "{{ url_for('views.gettingNumbersForMinMax') }}";
 
   fetch(routeUrl, {
@@ -290,15 +294,16 @@ document.getElementById('minMaxForm').addEventListener('submit', function(event)
   .then(response => response.json())
   .then(data => {
     alert('Numbers submitted successfully!');
-    // Optionally, clear the stored numbers after submission
-    localStorage.removeItem('numbers');
+    // Clear the stored numbers after submission
+    sessionStorage.removeItem('numbers');
     window.location.href = "{{ url_for('views.minMaxResult') }}?minValue=" + data.minValue + "&maxValue=" + data.maxValue;
-
   })
   .catch(error => {
     console.error('Error:', error);
   });
 });
+
+
 
 // ******* This script prevents the user from navigating back after logout*****
   function preventBack() {
