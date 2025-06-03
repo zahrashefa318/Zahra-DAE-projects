@@ -6,8 +6,10 @@ class SimpleArithmetic :
     def multiplactionTable(self, number):
         self.number=int(number)
         multiplactionList=[]
-        for i in range(1,21):
-            multiplactionList.append((i,self.number,self.number*i))
+        i = 1
+        while i <= 20:
+             multiplactionList.append((i, self.number, self.number * i))
+             i += 1
         resultPandasTbl=pd.DataFrame(multiplactionList,columns=['Multiplier','Number','Result'])
         resultPdTohtmlTble=resultPandasTbl.to_html(classes='table table-bordered', index=False)
         return resultPdTohtmlTble    
