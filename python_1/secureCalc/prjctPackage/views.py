@@ -1,6 +1,10 @@
 from flask import Blueprint , request, render_template , jsonify, url_for, redirect,flash ,session
 from .SimpleArithmetic import SimpleArithmetic
 from .utils import nocache
+import logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+from flask import current_app
 
 
 views=Blueprint('views', __name__)
@@ -35,7 +39,10 @@ def multiplactionTable():
         except Exception as e:
             flash(f"An unexpected error occurred: {e}", 'danger')
             return redirect(url_for('views.multiplactionTable'))
-        
+        finally:
+            # This block executes regardless of exceptions
+            current_app.logger.info("multiplactionTable route was accessed.")
+
 
 @views.route('/gettingNumbers', methods=['POST','GET'])
 def gettingNumbers():
@@ -67,7 +74,10 @@ def gettingNumbers():
             
         except Exception as e:
             flash(f"An unexpected error occurred: {e}", 'danger')
-            return redirect(url_for('views.result')) 
+            return redirect(url_for('views.result'))
+        finally:
+            # This block executes regardless of exceptions
+            current_app.logger.info("gettinNUmbers route was accessed.") 
             
     
 
@@ -129,6 +139,8 @@ def getPrecentage():
         except Exception as e:
             flash(f"An unexpected error occurred: {e}", 'danger')
             return redirect(url_for('views.getPrecentage'))
+        finally:
+            current_app.logger.info("getPrecentage route was accessed.")
     return render_template('result.html')    
 
 @views.route('/getAverage', methods=['POST'])
@@ -158,6 +170,9 @@ def getAverage():
         except Exception as e:
             flash(f"An unexpected error occurred: {e}", 'danger')
             return redirect(url_for('views.gettingNumbers'))
+        finally:
+            # This block executes regardless of exceptions
+            current_app.logger.info("getAverage route was accessed.")
 
 
 @views.route('/averageResult' , methods=['GET'])
@@ -215,6 +230,9 @@ def remainder ():
         except Exception as e:
             flash(f"An unexpected error occurred: {e}", 'danger')
             return redirect(url_for('views.remainder'))
+        finally:
+            # This block executes regardless of exceptions
+            current_app.logger.info("remainder route was accessed.")
         
 
 @views.route('/gettingNumbersForMinMax' , methods=['POST'])
@@ -250,6 +268,9 @@ def gettingNumbersForMinMax():
         except Exception as e:
             flash(f"An unexpected error occurred: {e}", 'danger')
             return redirect(url_for('views.minMaxxResult'))
+        finally:
+            # This block executes regardless of exceptions
+            current_app.logger.info("gettingNumbersForMinMax route was accessed.")
 
         
 
@@ -274,8 +295,9 @@ def minMaxResult():
   if 'user_id' not in session:
         flash('Please log in to access this page.', 'warning')
         return redirect(url_for('authRouts.loginHome'))
-  minv=request.args.get('minValue', default=0,type=int)
-  maxv=request.args.get('maxValue' ,default=100, type=int)
+  minv=request.args.get('minValue' , default=0.0,type=float)
+  maxv=request.args.get('maxValue', default=100.0, type=float)
+  print(minv , maxv)
   return render_template('result.html',minValue=minv , maxValue=maxv)
 
 
