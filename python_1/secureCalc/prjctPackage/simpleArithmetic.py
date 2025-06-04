@@ -19,11 +19,12 @@ class SimpleArithmetic :
         total=0
         for num in self.list:
             total +=num
+            total=round(total , 2)
         return total    
     
     def precentageCalculator(self, precentage, baseValue):
-        self.precentage=int(precentage)
-        self. baseValue=int(baseValue)
+        self.precentage=float(precentage)
+        self. baseValue=float(baseValue)
         result=(self.precentage / 100)*self.baseValue
         result=round(result ,2)
         return result
@@ -44,7 +45,7 @@ class SimpleArithmetic :
         return result
     
     def minMaxCalculator(self, numbers):
-        self.numbers=numbers
+        self.numbers= list(map(float , numbers))
         minValue=min(self.numbers)
         maxValue=max(self.numbers)
         return minValue , maxValue

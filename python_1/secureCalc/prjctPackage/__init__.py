@@ -17,6 +17,8 @@ def flaskApp():
     except Exception as e:
         logger.error(f"Database initialization error: {e}")
         raise       
+    finally:
+        logger.info("Database setup attempt completed.")
 
     try:
         app.register_blueprint(views)
@@ -24,5 +26,7 @@ def flaskApp():
         logger.info("Blueprints registered successfully.")
     except Exception as e:
         logger.error(f"Blueprint registration error: {e}")
-        raise    
+        raise 
+    finally:
+        logger.info("Blueprint registration attempt completed.")   
     return app

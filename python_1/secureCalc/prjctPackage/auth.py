@@ -4,6 +4,8 @@ from .models import userInfo
 from werkzeug.security import check_password_hash, generate_password_hash
 from .utils import nocache
 from sqlalchemy.exc import SQLAlchemyError
+from flask import current_app
+from datetime import datetime
 
 authRouts=Blueprint('authRouts', __name__ )
 
@@ -37,17 +39,21 @@ def register():
                 newUser=userInfo(name=name,lastname=lastname,email=email,password=hashed_password)
                 db.session.add(newUser)
                 db.session.commit()
-            
-                return render_template('home.html', name=name, lastname=lastname)
-
+                return redirect(url_for('authRouts.loginHome'))
         except SQLAlchemyError as e:
             db.session.rollback()
             flash("A database error occurred. Please try again later.", "danger")
             return redirect(url_for('authRouts.signup'))
 
         except Exception as e:
+            db.session.rollback()
+            with open("app.log", "a") as f:
+                f.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {e}\n")
             flash("An unexpected error occurred. Please try again later.", "danger")
             return redirect(url_for('authRouts.signup'))
+
+        finally:
+            current_app.logger.info("Register route was accessed.")
 
     return render_template("signUp.html")
         
@@ -81,6 +87,10 @@ def loginHome():
        except Exception as e:
             flash("An unexpected error occurred. Please try again later.", "danger")
             return redirect(url_for('authRouts.loginHome'))
+       finally:
+            # This block executes regardless of exceptions
+            current_app.logger.info("loginHome route was accessed.")
+       
 
     return render_template('base.html')
 
@@ -105,6 +115,9 @@ def logout():
     except Exception as e:
         flash("An error occurred during logout. Please try again.", "danger")
         return redirect(url_for('authRouts.dashboard'))
+    finally:
+            # This block executes regardless of exceptions
+            current_app.logger.info("logout route was accessed.")
 
        
        
