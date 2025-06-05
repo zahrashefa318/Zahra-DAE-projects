@@ -223,7 +223,7 @@ document.getElementById('summationForm').addEventListener('submit', function(eve
 
 document.getElementById('addAverageNumsbtn').addEventListener('click', function() {
   const numberInput = document.getElementById('averageInput');
-  const number = parseInt(numberInput.value, 10);
+  const number = parseFloat(numberInput.value, 10);
   if (!isNaN(number)) {
     // Retrieve existing numbers from sessionStorage or initialize an empty array
     let numbers = JSON.parse(sessionStorage.getItem('numbers')) || [];
@@ -266,7 +266,7 @@ document.getElementById('averageForm').addEventListener('submit', function(event
     
 document.getElementById('minMaxAddbtn').addEventListener('click', function() {
   const numberInput = document.getElementById('minMaxInput');
-  const number = parseInt(numberInput.value, 10);
+  const number = parseFloat(numberInput.value);
   if (!isNaN(number)) {
     // Retrieve existing numbers from sessionStorage or initialize an empty array
     let numbers = JSON.parse(sessionStorage.getItem('numbers')) || [];

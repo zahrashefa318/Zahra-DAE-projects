@@ -5,15 +5,15 @@
    <div id="header" >
     {% if resultTable %}
     <h1 style="text-align: center;">Multiplaction Table of {{number}}</h1>
-    {% elif total %}
+    {% elif total is not none %}
     <h1 style="text-align: center;">Summation result </h1>
-    {% elif precentageResult %}
+    {% elif precentageResult is not none %}
     <h1 style="text-align: center;">Percentage result</h1>
-    {% elif average %}
+    {% elif average is not none %}
     <h1 style="text-align: center;">Average result</h1>
-    {% elif remainder %}
+    {% elif remainder is not none %}
     <h1 style="text-align: center;">Remainder result</h1>
-    {% elif minValue and maxValue %}
+    {% elif minValue is not none and maxValue is not none %}
     <h1 style="text-align: center;">Minimum and Maximum</h1>
     {% endif %}
    </div>
@@ -26,21 +26,21 @@
         {{ resultTable | safe }}
     </div>
     
-    {% elif total %}
+    {% elif total is not none %}
     
     <p style="margin-top:20%;">The total sum of the entered numbers is: </p>
     <h1>{{ total }}</h1>
 
-    {% elif precentageResult %}
+    {% elif precentageResult is not none %}
     <p style="margin-top:20%;">The {{precentage}} percentage of {{baseValue}} is: </p>
      <h1>{{ precentageResult }}</h1>
-    {% elif average %}
+    {% elif average is not none %}
     <p style="margin-top:20%;">The average is: </p>
      <h1>{{ average }}</h1>
-    {% elif remainder %}
+    {% elif remainder is not none %}
     <p style="margin-top:20%;">The remainder of {{number}} divided by {{divisor}} is : </p>
      <h1>{{remainder}}</h1>
-    {% elif minValue and maxValue %}
+   {% elif minValue is not none and maxValue is not none %} 
     <p style="margin-top:20%;">The minimum value is :<h1> {{minValue}}</h1> and the maximum value is : </p>
     <h1>{{maxValue}}</h1>
     {% endif %}
