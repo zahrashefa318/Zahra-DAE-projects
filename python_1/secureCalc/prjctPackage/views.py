@@ -103,7 +103,7 @@ def result():
         flash("Error!!!!","danger")
         
     print(f"hi this is :{total}")
-    return render_template('result.html', total=total)
+    return render_template('result.html',result_type='summation' , total=total)
     
 
 
@@ -132,7 +132,8 @@ def getPrecentage():
             precentage=request.form.get('input1')
             baseValue=request.form.get('input2')
             result=arithmeticFnc.precentageCalculator(precentage, baseValue)
-            return render_template('result.html', precentageResult=result , precentage=precentage , baseValue=baseValue)
+            print(result)
+            return render_template('result.html',result_type ='percentage', precentageResult=result , precentage=precentage , baseValue=baseValue)
         except ValueError as e:
             flash(f"Invalid input: {e}", 'danger')
             return redirect(url_for('views.getPrecentage'))
@@ -182,7 +183,7 @@ def avrageResult():
         flash('Please log in to access this page.', 'warning')
         return redirect(url_for('authRouts.loginHome'))
     average = request.args.get('average', type=float)
-    return render_template('result.html', average=average)
+    return render_template('result.html',result_type='average', average=average)
 
 
 @views.route('/remainder', methods=['GET','POST'])
@@ -223,7 +224,7 @@ def remainder ():
             else:
                 result=arithmeticFnc.remainderCalculator(number, divisor)
                 print(result)
-                return render_template('result.html', number=number ,divisor= divisor ,remainder= result)
+                return render_template('result.html',result_type='remainder', number=number ,divisor= divisor ,remainder= result)
         except ValueError as e:
             flash(f"Invalid input: {e}", 'danger')
             return redirect(url_for('authRouts.dashboard'))
@@ -298,7 +299,7 @@ def minMaxResult():
   minv=request.args.get('minValue' , default=0.0,type=float)
   maxv=request.args.get('maxValue', default=100.0, type=float)
   print(minv , maxv)
-  return render_template('result.html',minValue=minv , maxValue=maxv)
+  return render_template('result.html', result_type='minmax' , minValue=minv , maxValue=maxv)
 
 
  

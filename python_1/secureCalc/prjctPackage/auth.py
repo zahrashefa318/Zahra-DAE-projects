@@ -13,11 +13,50 @@ authRouts=Blueprint('authRouts', __name__ )
 
 @authRouts.route('/signup')
 def signup():
-    return render_template("signUp.html")
+     """
+    Handles the '/signup' route within the 'authRouts' Blueprint.
+
+    This view function renders the 'signUp.html' template, which presents
+    the user with a registration form to create a new account.
+
+    Returns:
+        A rendered HTML template displaying the signup form.
+    """
+     return render_template("signUp.html")
 
 @authRouts.route('/register' , methods=['GET', 'POST'])
 def register():
-    if request.method == 'POST':
+  """
+    Handles user registration via the '/register' route.
+
+    This view function supports both GET and POST HTTP methods:
+
+    - GET: Renders the 'signUp.html' template, displaying the user registration form.
+    - POST: Processes the submitted registration form data to create a new user account.
+
+    The registration process includes:
+    - Retrieving form data: 'name', 'lastname', 'email', 'password', and 'confirm'.
+    - Validating that the 'password' and 'confirm' fields match.
+    - Checking if a user with the provided email already exists in the database.
+    - Hashing the password for secure storage.
+    - Creating a new user record and committing it to the database.
+
+    Error Handling:
+    - If the passwords do not match, flashes an error message and redirects back to the signup page.
+    - If the email already exists, flashes an error message and redirects back to the signup page.
+    - Catches SQLAlchemy errors, rolls back the session, flashes a database error message, and redirects back to the signup page.
+    - Catches any other exceptions, logs the error with a timestamp to 'app.log', flashes a generic error message, and redirects back to the signup page.
+
+    Logging:
+    - Logs an informational message indicating that the register route was accessed.
+
+    Returns:
+        - On GET: Rendered 'signUp.html' template.
+        - On successful POST: Redirect to the login page.
+        - On error during POST: Redirect back to the signup page with an appropriate flash message.
+    """
+
+  if request.method == 'POST':
         try:
             name=request.form.get('name')
             lastname=request.form.get('lastname')
@@ -55,7 +94,7 @@ def register():
         finally:
             current_app.logger.info("Register route was accessed.")
 
-    return render_template("signUp.html")
+  return render_template("signUp.html")
         
 
     
@@ -65,6 +104,38 @@ def register():
 @authRouts.route('/loginHome',methods=['GET','POST'])
 @nocache
 def loginHome():
+    """
+    Handles user authentication via the '/loginHome' route.
+
+    This view function supports both GET and POST HTTP methods:
+
+    - GET: Renders the 'base.html' template, displaying the login form to the user.
+    - POST: Processes the submitted login form data to authenticate the user.
+
+    The authentication process includes:
+    - Retrieving form data: 'email' and 'password'.
+    - Querying the database for a user with the provided email.
+    - Verifying the provided password against the stored hashed password.
+    - If authentication is successful:
+        - Stores the user's ID and name in the session.
+        - Redirects the user to the dashboard.
+    - If authentication fails:
+        - Flashes an error message indicating invalid credentials.
+        - Redirects back to the login page.
+
+    Error Handling:
+    - Catches SQLAlchemy errors, flashes a database error message, and redirects back to the login page.
+    - Catches any other exceptions, flashes a generic error message, and redirects back to the login page.
+
+    Logging:
+    - Logs an informational message indicating that the loginHome route was accessed.
+
+    Returns:
+        - On GET: Rendered 'base.html' template.
+        - On successful POST: Redirect to the dashboard.
+        - On error during POST: Redirect back to the login page with an appropriate flash message.
+    """
+    
     if request.method=='POST':
        try:
             email=request.form.get('email')
@@ -97,15 +168,52 @@ def loginHome():
 @authRouts.route('/dashboard')
 @nocache
 def dashboard():
+    """
+    Renders the user's dashboard page upon successful authentication.
+
+    This view function performs the following operations:
+    - Checks if the user is authenticated by verifying the presence of 'user_id' in the session.
+    - If the user is not authenticated:
+        - Flashes a warning message prompting the user to log in.
+        - Redirects the user to the login page.
+    - If the user is authenticated:
+        - Renders the 'home.html' template, passing the user's name from the session for personalized display.
+
+    Returns:
+        - On unauthenticated access: Redirects to the login page with a flash message.
+        - On authenticated access: Rendered 'home.html' template with the user's name.
+    """
     if 'user_id' not in session:
         flash('Please log in to access this page.', 'warning')
         return redirect(url_for('authRouts.loginHome'))
-    return render_template('home.html', name=session['user_name'])    
+    return render_template('home.html', name=session['user_name'])
+
+
+      
 
 #*********** logout route and function ************************
 
 @authRouts.route('/logout' , methods=['POST','GET'])
 def logout():
+    """
+    Logs out the current user by clearing session data and redirecting to the base page.
+
+    This route handles both GET and POST requests to log out the user. It performs the following actions:
+    - Removes 'user_id' and 'user_name' from the session.
+    - Clears the entire session to remove any remaining data.
+    - Flashes a success message indicating the user has been logged out.
+    - Redirects the user to the base page.
+
+    In case of an exception during the logout process:
+    - Flashes an error message.
+    - Redirects the user back to the dashboard.
+
+    Regardless of the outcome, logs an informational message indicating that the logout route was accessed.
+
+    Returns:
+        A redirect response to the appropriate page based on the outcome.
+    """
+
     try:
         session.pop('user_id',None)
         session.pop('user_name', None)
