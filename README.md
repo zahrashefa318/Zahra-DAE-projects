@@ -9,6 +9,7 @@ This repository contains multiple sub-projects and folders, each addressing a di
 # unix_1
 # unix_2
 # version_control_1
+# Second_Semester_updates
 
 - **Project1** – A Python-based tool for analizing the odd and even numbers.
 ```python
