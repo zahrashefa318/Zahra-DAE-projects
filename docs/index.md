@@ -8,5 +8,5 @@ I'm **Zahra Shefa**, a software engineer specializing in **Flask** and **Laravel
 - **Frameworks**: Flask, Laravel
 
 ### 📫 Connect with me
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-YourName-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/linkedin.com/in/zahra-shefa-3398a2312)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Zahra-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/linkedin.com/in/zahra-shefa-3398a2312)
 
