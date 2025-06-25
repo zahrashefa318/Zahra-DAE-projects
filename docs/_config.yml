@@ -1,1 +1,10 @@
 theme: minima
+title: "Zahra Shefa"
+description: "Full‑stack developer passionate about open source"
+owner:
+  name: "Zahra"
+  avatar: "assets/your-photo.jpg"
+  bio: "I build web apps using Flask , Laravel, Tkinter, and HTML & CSS."
+  email: zahra.shefa.1990@gmail.com
+  linkedin: linkedin.com/in/zahra-shefa-3398a2312
+  github: https://github.com/zahrashefa318
