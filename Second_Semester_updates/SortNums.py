@@ -3,11 +3,16 @@ sortedList=[]
 
 
 def make_sorted_copy(original_list):
-    i=1
-    for num in range(1,11):
-        if num < original_list[i]:
-            sortedList.append(num)
-            i=+1
+    original_list_copy=original_list
+    
+    currentIndex=0
+    nextIndex=1
+    while nextIndex < 9:
+        if original_list_copy[currentIndex]< original_list_copy[nextIndex]:
+            sortedList.append(original_list_copy[currentIndex])
+            original_list_copy.remove(original_list_copy[currentIndex])
+            currentIndex += 1
+            nextIndex +=1
          
 
     return sortedList
