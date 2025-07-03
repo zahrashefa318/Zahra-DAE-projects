@@ -1,5 +1,7 @@
 ---
+layout: default
 title: Project Gallery
+permalink: /gallery/
 ---
 
 # 🚀 Project Gallery
