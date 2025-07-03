@@ -5,15 +5,10 @@ sortedList=[]
 def make_sorted_copy(original_list):
     original_list_copy=original_list
     
-    currentIndex=0
-    nextIndex=1
-    while nextIndex < 9:
-        if original_list_copy[currentIndex]< original_list_copy[nextIndex]:
-            sortedList.append(original_list_copy[currentIndex])
-            original_list_copy.remove(original_list_copy[currentIndex])
-            currentIndex += 1
-            nextIndex +=1
-         
+    while len(original_list_copy) > 0:
+        sortedList.append(min(original_list_copy))
+        original_list_copy.remove(min(original_list_copy))
+        
 
     return sortedList
 
