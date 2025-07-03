@@ -1,6 +1,11 @@
 title: My Portfolio
 remote_theme: pages-themes/slate@v0.2.0
+url: https://zahrashefa318.github.io
+title: Home
+
 header_pages:
   - index.md
   - about.md
   - gallery.md
+
+ 
