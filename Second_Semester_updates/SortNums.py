@@ -11,5 +11,5 @@ def make_sorted_copy(original_list):
         
 
     return sortedList
-
+print(original_list)
 print(make_sorted_copy(original_list))
