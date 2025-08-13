@@ -6,7 +6,7 @@ layout: single
 
 <div style="text-align:center; margin-bottom:2rem; padding:1.5rem; background:#f8f9fa; border-radius:8px;">
   <h1 style="margin:0; color:#2c3e50;">Zahra Shefa</h1>
-  <p style="margin:0.5rem 0; font-size:1.1rem; color:#34495e;">Backend Developer</p>
+  <p style="margin:0.5rem 0; font-size:1.1rem; color:#34495e;">Full Stack Software Engineer</p>
   <p style="margin:0; color:#7f8c8d;">📧 zahra.shefa.1990@gmail.com | 🔗 linkedin.com/in/zahra-shefa-3b0478377 | 🐙 GitHub: /zahrashefa318</p>
 </div>
 
