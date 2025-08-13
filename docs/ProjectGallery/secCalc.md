@@ -17,4 +17,4 @@ View project details:
 - [SecureCalc-Git-Hub-Link](https://github.com/zahrashefa318/Zahra-DAE-projects/tree/master/python_2)
 
 
-[← Back to Resume](../../resume.md)
+

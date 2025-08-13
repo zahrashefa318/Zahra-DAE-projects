@@ -25,4 +25,4 @@ View project details:
 - [Online-Quiz-Git-Hub-Link](https://github.com/zahrashefa318/Quiz)
 
 
-[← Back to Resume](../../resume.md)
+

@@ -12,10 +12,10 @@ layout: single
 
 ## 🎓 Education
 
-**District Arts & Education (DAE)**  
-*Cybersecurity & Backend Development Program*  
-*Expected Graduation: November 2025*  
-*GPA: 3.8/4.0*
+**Kabul University**  
+*Bachelor of Computer Science*  
+*Graduation year: 2012*  
+
 
 
 **Relevant Coursework:**
