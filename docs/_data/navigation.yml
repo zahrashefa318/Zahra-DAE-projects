@@ -9,3 +9,7 @@ main:
       url: /resume/
     - title: "Contact"
       url: /contact/
+    - title: "FMFB"
+      url: /ProjectGallery/FMFB/
+    - title: "SecureClac"
+      url: /ProjectGallery/secCalc/

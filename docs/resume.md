@@ -26,21 +26,6 @@ layout: single
 - Network Security
 ---
 
-## 💼 Experience
-
-**Security Analyst Intern** | *TechSecure Solutions* | *Jun 2024 - Present*
-- Monitored security events using SIEM platforms (Splunk, QRadar)
-- Investigated and responded to 50+ security incidents per week
-- Developed automated threat detection rules, reducing false positives by 30%
-- Created incident response playbooks for common attack scenarios
-
-**Backend Developer** | *StartupLab* | *Jan 2024 - May 2024*
-- Built secure REST APIs using Python/Flask and Go
-- Implemented OAuth 2.0 authentication and JWT token management
-- Designed database schemas with security best practices
-- Conducted code reviews focusing on security vulnerabilities
-
----
 
 ## 🛠️ Technical Skills
 
