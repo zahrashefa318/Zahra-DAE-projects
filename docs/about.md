@@ -50,6 +50,7 @@ Creates clear project plans, delivers timely status updates, and embeds clean do
 - HTML 
 - Bootstrap 
 - NinjaTemplates
+
 **Backend Development & Data Management:**
 - Data Analysis
 - Database Normalization
