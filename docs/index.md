@@ -1,22 +1,33 @@
-# Portfolio
-# About Me 👋
+---
+layout: single
+title: "Zahra Shefa"
+permalink: /
+---
 
-I'm **Zahra Shefa**, a software engineer specializing in **Flask** and **Laravel**. 
+<div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap; margin-bottom:2rem; padding:1.5rem; background:#f8f9fa; border-radius:8px;">
+  <img src="{{ '/assets/img/pinky.jpg' | relative_url }}" alt="Headshot of Alex Rivera" 
+       style="max-width:160px; border-radius:50%; box-shadow:0 4px 12px rgba(0,0,0,.15);">
+  <div>
+    <h1 style="margin:0; color:#2c3e50;">Zahra Shefa</h1>
+    <p style="margin:.5rem 0; font-size:1.1rem; color:#34495e;">BackEnd Software Engineer Student · Graduating May 2025</p>
+    <p style="margin:.5rem 0; line-height:1.6;">Specializing in frameworks such as Flask, Laravel and next focus on Django, React, and Node.js, I develop responsive, modular applications with intuitive interfaces and robust data handling, aligning with specific, impactful objectives.</p>
+  </div>
+</div>
 
+## Welcome to My Portfolio
+ I am passionate about developing **secure, multifunctional, and user-friendly systems** that empower organizations to proactively combat modern threats. Areas of focus include:
 
-- [About Me](about.md)
-- [Project Gallery](gallery.md)
-- [📄 Download My Resume](asset/ZAHRAResumeDraft.pdf)
+- 🛡️ **Security Operations**: Implement secure user authentication, validate and sanitize data on both client and server sides, and manage sessions with robust controls to ensure data integrity and protection
+- 🔧 **Backend Development**: Structure projects using modular design and object-oriented principles to create clean, reusable, and efficient code, enhancing maintainability and scalability
 
-### 📫 Connect with me
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Zahra-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/linkedin.com/in/zahra-shefa-3398a2312)
+- 📚 **Documentation**: Develop comprehensive project documentation, including detailed plans, regular status reports, and well-structured code docstrings, to ensure clarity, accountability, and maintainability throughout the development lifecycle
 
-[![GitHub](https://img.shields.io/badge/GitHub-zahrashefa318-black?style=for-the-badge&logo=github)](https://github.com/zahrashefa318)
+### Current Focus
 
+As I approach graduation in **May 2025**, I'm seeking opportunities in **Full Stack Software Engineering** roles where I can contribute to building robust  systems and continue learning from experienced software engineering professionals.
 
-[![Portfolio Badge](https://img.shields.io/badge/Portfolio-Explore_My_Site-543DE0?style=for-the-badge&logo=about.me&logoColor=white)](https://zahrashefa318.github.io/Zahra-DAE-projects/)  
+---
 
-
-[![Email Badge](https://img.shields.io/badge/Gmail-Contact_Me-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:zahra.shefa.1990@gmail.com)
-
-
+<div style="text-align:center; margin-top:2rem;">
+  <img src="{{ '/assets/img/dae-logo.jpg' | relative_url }}" alt="DAE Logo" style="height:40px; opacity:0.8;">
+</div>
