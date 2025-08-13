@@ -3,8 +3,8 @@
 # =====================
 title: "Zahra Shefa — Full Stack Software Engineer"
 description: "Portfolio showcasing secure backend systems, intractive frontend, and case studies."
-url: "https://zahrashefa318.github.io/Zahra-DAE-projects/" # ← Your actual GitHub username
-baseurl: "/DAE-Demo" # ← Your actual repository name
+url: "https://zahrashefa318" # ← Your actual GitHub username
+baseurl: "/Zahra-DAE-projects" # ← Your actual repository name
 
 # =====================
 # THEME (Modern)
