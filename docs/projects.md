@@ -120,7 +120,7 @@ An interactive, browser-based quiz application built with HTML, CSS, and JavaScr
 <div style="text-align:center; margin-top:3rem; padding:2rem; background:#f8f9fa; border-radius:8px;">
   <h3>Want to Learn More?</h3>
   <p>These projects represent my commitment to practical Full Stack Software Engineering skills. Each project includes detailed documentation, installation guidance, and lessons learned.</p>
-  <p><a href="/contact/" style="background:#007bff; color:white; padding:0.5rem 1rem; text-decoration:none; border-radius:4px;">Get in Touch</a></p>
+  <p><a href="/Zahra-DAE-projects/contact/" style="background:#007bff; color:white; padding:0.5rem 1rem; text-decoration:none; border-radius:4px;">Get in Touch</a></p>
   
   <div style="margin-top:2rem;">
     <img src="{{ '/assets/img/dae-logo.jpg' | relative_url }}" alt="DAE Logo" style="height:40px; opacity:0.7;">
