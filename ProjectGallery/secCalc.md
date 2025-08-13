@@ -13,4 +13,8 @@ A web-based calculator built with Flask that emphasizes security and functionali
 Built with:  
 - **Tools:** Python, Flask, HTML, CSS, JavaScript  
 
-[← Back to Projects](gallery.md)
+View project details:
+- [SecureCalc-Git-Hub-Link](https://github.com/zahrashefa318/Zahra-DAE-projects/tree/master/python_2)
+
+
+[← Back to Resume](../../myresume.md)
