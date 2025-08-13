@@ -24,16 +24,18 @@ layout: single
 - Data Structures
 - CCNA1-CCNA4
 - Network Security
+
+
 ---
 
 
 ## 🛠️ Technical Skills
 
 ### Programming Languages
-- **Python** - Security automation, data analysis, Flask/Django
-- **PHP** - Backend services, CLI tools, concurrent programming
-- **JavaScript** - Frontend security implementations
-- **SQL** - Database design, query optimization, injection prevention
+- **Python** -  Flask/TKinter
+- **PHP** - Laravel
+- **JavaScript** - DOM
+- **SQL** - Database design, query optimization
 
 ###  Platforms & Tools
 - Flask
@@ -89,6 +91,6 @@ layout: single
   <p style="margin:0; font-style:italic; color:#2c3e50;">"Passionate about designing secure software systems that safeguard organizations while enabling innovation and growth."</p>
   
   <div style="margin-top:1rem;">
-    <img src="{{ '/assets/img/dae-logo.jpg' | relative_url }}" alt="DAE Logo" style="height:30px; opacity:0.7;">
+    <img src="{{ '/assets/img/dae-logo.png' | relative_url }}" alt="DAE Logo" style="height:30px; opacity:0.7;">
   </div>
 </div>

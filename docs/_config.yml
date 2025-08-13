@@ -36,7 +36,7 @@ author:
 # =====================
 # BRANDING
 # =====================
-logo: "/assets/img/dae-logo.jpg" # ← Fixed from .avif
+logo: "/assets/img/dae-logo.png" # ← Fixed from .avif
 
 # =====================
 # PLUGINS (safe + GitHub Pages supported)
