@@ -5,7 +5,7 @@ permalink: /
 ---
 
 <div style="display:flex; gap:20px; align-items:center; flex-wrap:wrap; margin-bottom:2rem; padding:1.5rem; background:#f8f9fa; border-radius:8px;">
-  <img src="{{ '/assets/img/pinky.jpg' | relative_url }}" alt="Headshot of Alex Rivera" 
+  <img src="{{ '/assets/img/zhara_dae_1.jpg' | relative_url }}" alt="Headshot of Zahra shefa" 
        style="max-width:160px; border-radius:50%; box-shadow:0 4px 12px rgba(0,0,0,.15);">
   <div>
     <h1 style="margin:0; color:#2c3e50;">Zahra Shefa</h1>
