@@ -29,5 +29,5 @@ As I approach graduation in **May 2025**, I'm seeking opportunities in **Full St
 ---
 
 <div style="text-align:center; margin-top:2rem;">
-  <img src="{{ '/assets/img/dae-logo.jpg' | relative_url }}" alt="DAE Logo" style="height:40px; opacity:0.8;">
+  <img src="{{ '/assets/img/dae-logo.png' | relative_url }}" alt="DAE Logo" style="height:40px; opacity:0.8;">
 </div>

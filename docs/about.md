@@ -64,7 +64,7 @@ Creates clear project plans, delivers timely status updates, and embeds clean do
 
 **District Arts & Education (DAE)**  
 *Cybersecurity & Backend Development Program*  
-*Expected Graduation: November 2025*
+*Expected Graduation: October 2025*
 
 **Relevant Coursework:**
 - Java
