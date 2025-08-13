@@ -25,4 +25,4 @@ View Project details:
 View How it works:
 - [Online Inventory System](https://online-inventory-system-uyqb.onrender.com)
 
-[← Back to Resume](../../resume.md)
+
