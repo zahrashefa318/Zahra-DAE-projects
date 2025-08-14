@@ -24,7 +24,7 @@ permalink: /
 
 ### Current Focus
 
-As I approach graduation in **May 2025**, I'm seeking opportunities in **Full Stack Software Engineering** roles where I can contribute to building robust  systems and continue learning from experienced software engineering professionals.
+As I approach graduation in **October 2025**, I'm seeking opportunities in **Full Stack Software Engineering** roles where I can contribute to building robust  systems and continue learning from experienced software engineering professionals.
 
 ---
 
