@@ -13,7 +13,7 @@ layout: single
 
 
 I am a **Full-Stack Software Engineer** who thrives in **remote or hybrid environments**, where flexibility, collaboration, and work–life balance are valued.
-I design and develop secure, full-feature, user-friendly web and standalone applications, complete with elegant error-handling methods. Currently, I’m attending **DAE** as a trainee, with an expected graduation in**November 2025**.
+I design and develop secure, full-feature, user-friendly web and standalone applications, complete with elegant error-handling methods. Currently, I’m attending **DAE** as a trainee, with an expected graduation in **October 2025**.
 
 
 ###  Personal Profile & Core Values  
