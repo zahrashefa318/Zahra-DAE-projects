@@ -14,4 +14,3 @@ def make_sorted_copy(original_list):
 
 print(original_list)
 print(make_sorted_copy(original_list))
-print(make_sorted_copy([3,5,2]))
