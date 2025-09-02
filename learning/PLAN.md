@@ -1,147 +1,76 @@
 # REST API Integration Plan
 
-I’ve chosen **REST APIs** for my project to integrate web services between the client and server in a clean, standardized way. REST emphasizes clear resource naming, stateless requests, and predictable use of HTTP methods (GET, POST, PUT/PATCH, DELETE), which improves consistency and interoperability across the system.  
-
-> Why REST?
-> - Predictable resource design and versioning
-> - Uniform JSON structures for request/response
-> - Easier testing and automation across services
+I’ve chosen **REST APIs** to integrate web services between client and server with standardized JSON, versioned interfaces, and predictable behavior.
 
 ---
 
-## Integration Approach
+## Integration Phases (Actionable)
 
-1. **Learn Deeply**
-   - Review REST fundamentals (statelessness, uniform interface, resource modeling, HTTP methods and status codes).
-   - Study API design guidance and conventions (nouns for resources, pagination, filtering, error formats, versioning, auth).  
-   _References: Microsoft REST API design guidance; OpenAPI best practices; Swagger/Stack Overflow design tips.
+###  Phase 1: **Contract-First Foundation**
 
-2. **Incremental Modernization**
-   - Apply REST endpoints where they add the most value first, keeping legacy UI flows running while introducing an API layer.
-   - Use a “**strangler**” approach: route only selected features through the new API and expand coverage over time.  
-   _References: Strangler Fig modernization pattern (Fowler, Azure Architecture Center).
+Define a solid, reviewable API contract upfront—this minimizes misalignment and speeds future work.
 
-3. **Test, Compare, Prove**
-   - Add unit/integration tests for each endpoint; automate in CI.
-   - Capture **before vs. after** behavior (manual cURL examples + screenshots of passing CI).
+- **Deliverables:**
+  - `docs/openapi.yaml` describing initial endpoints (e.g., `GET /api/v1/customers/{id}/loan-summary`, `POST /api/v1/loan-applications`)
+  - Include **operationId**, schemas, response examples.
+  - Validate using an OpenAPI linter/editor.
+- **Why:** A contract-first approach aligns all teams, supports parallel development, and prevents inconsistencies. Tools like Swagger, Postman, and linters provide early feedback. 
+- **Scaffold:** Generate boilerplate (e.g., routes, controllers) from the spec to focus implementation on business logic. 
 
-**Specific capability added:** standard, structured data transmission (primarily JSON) and consistent API contracts that are easy to document and test.  
-_See also: REST/HTTP method guidance and design checklists._ 
+###  Phase 2: **Scaffold & Build Incrementally (Strangler Fig Pattern)**
 
----
+Implement endpoints one slice at a time, allowing the legacy/incremental system to function continuously.
 
-## Standards & Conventions (Project-Wide)
+- **Steps:**
+  - Create controllers, routes, and resource transformers following the contract.
+  - Use a facade (API router) to direct calls either to legacy handlers or to new handlers.
+  - Replace functionality slice-by-slice without disrupting production.
+- **Why:** The Strangler Fig pattern reduces risk by migrating feature-by-feature rather than via a risky rewrite. 
 
-- **Content type:** `application/json`
-- **Naming:** plural nouns for collections (`/api/customers`, `/api/loan-applications`)
-- **Versioning:** prefix routes with `/api/v1/...`
-- **Errors:** JSON problem details with `code`, `message`, `details`
-- **Auth (future):** token-based (e.g., JWT) with `Authorization: Bearer <token>`
-- **Docs:** OpenAPI spec stored at `docs/openapi.yaml` and rendered in README  
-_Reference: Microsoft REST API design guidance & OpenAPI best practices._ 
+###  Phase 3: **Validation, Testing & CI**
 
----
+Ensure correctness, stability, and reproducibility across changes.
 
-## SMART Framing
+- **Deliverables:**
+  - Write feature tests for each endpoint (success + failure paths, including DB asserts for POST).
+  - Optionally, use OpenAPI validators to compare implementation vs. spec. 
+  - Setup CI (e.g., GitHub Actions) to run tests and lint on pull requests.
 
-Each task below is **Specific, Measurable, Achievable, Relevant, Time-bound** (SMART) with explicit success criteria and proof capture. 
+###  Phase 4: **Document & Demonstrate**
 
----
+Make your API easy to grasp, test, and use—from mock requests to implementation guidance.
 
-## My Three Integration Tasks (small, testable, dated)
-
-> **Note:** Replace dates if you need different targets. Today is **2025-09-02**.
-
-### Task 1 — Title: **GET Loan Summary for a Customer**
-
-- **Description:** Implement `GET /api/v1/customers/{id}/loan-summary` to return a summarized JSON of the customer’s approved loan account (principal, interest rate, term, start/end dates, current status).
-- **Start date:** 2025-09-03  
-- **Target completion date:** 2025-09-05  
-- **Success criterion (explicit):** An integration test confirms the endpoint returns the expected JSON shape and values for seeded sample data; returns `404` for a non-existent customer; returns `403/401` when auth guard (stubbed for now) fails.
-- **Proof method:**  
-  1) Screenshot of passing CI run for the new integration test.  
-  2) Paste a `curl` request/response example into `docs/learning/README.md`.  
-  3) Add the endpoint to `docs/openapi.yaml` and include a short snippet in the README.
-- **Where I will start Task 1:** `feature/get-loan-summary-endpoint`
-
-### Task 2 — Title: **POST Create Loan Application**
-
-- **Description:** Implement `POST /api/v1/loan-applications` to create a new loan application with validated JSON (`customer_id`, `requested_amount`, `terms_months`, `purpose`). On success, return `201` with the created resource and Location header; on validation failure, return `422` with errors.
-- **Start date:** 2025-09-06  
-- **Target completion date:** 2025-09-08  
-- **Success criterion (explicit):** Integration test demonstrates:  
-  - valid payload → `201` and persisted record  
-  - invalid payload → `422` with field-level error messages  
-  - OpenAPI schema is updated and matches responses
-- **Proof method:**  
-  1) CI screenshot with green tests.  
-  2) `curl` example (request + response) saved in `docs/learning/README.md`.  
-  3) Database assertion screen or console log from test run (sanitized).
-- **Where I will start Task 2:** `feature/post-loan-application`
-
-### Task 3 — Title: **Automated Regression Tests for Loan Endpoints**
-
-- **Description:** Add regression tests covering both new endpoints to ensure changes don’t break API contracts (status codes, JSON schema, pagination/errors where applicable).
-- **Start date:** 2025-09-09  
-- **Target completion date:** 2025-09-11  
-- **Success criterion (explicit):** All regression tests pass in CI; JSON schema validation is enforced for success/error responses; README links to a test report.
-- **Proof method:**  
-  1) CI screenshot with the regression suite green.  
-  2) Store HTML/JSON test reports under `test-reports/` and link from README.  
-  3) Include a short “How to run tests” section in `README.md`.
-- **Where I will start Task 3:** `chore/api-regression-tests`
+- **Deliverables:**
+  - `docs/learning/README.md` containing:
+    - Sample `curl` commands (success and error cases)
+    - Short instructions: “Read the spec → Run tests”
+    - Link to `openapi.yaml`
+  - Ensure the documentation reflects actual behavior and passes CI validation consistently.
 
 ---
 
-## Quick Overview
+## Integration Tasks (SMART, Dated)
 
-| Task | Title                                       | Start       | Target End  | Success (summary)                                        | Proof artifacts                                             |
-|------|---------------------------------------------|-------------|-------------|-----------------------------------------------------------|-------------------------------------------------------------|
-| 1    | GET Loan Summary for a Customer             | 2025-09-03  | 2025-09-05  | GET returns expected JSON; 404/401/403 paths correct      | CI screenshot; curl sample in README; OpenAPI updated       |
-| 2    | POST Create Loan Application                | 2025-09-06  | 2025-09-08  | 201 on valid; 422 on invalid; schema documented           | CI screenshot; curl sample; DB assertion proof              |
-| 3    | Automated Regression Tests for Endpoints    | 2025-09-09  | 2025-09-11  | Regression suite passes; schema checks enforced           | CI screenshot; saved test reports; README run instructions  |
+| Task | Title                               | Start         | End           | Success Criteria                              | Proof Artifacts                                       | Branch                            |
+|------|-------------------------------------|---------------|----------------|-----------------------------------------------|--------------------------------------------------------|-----------------------------------|
+| 1    | Contract-First API Spec              | 2025-09-03    | 2025-09-05    | `openapi.yaml` exists and validates locally     | Linter output, spec file in repo, brief doc snippet   | `spec/INIT`                       |
+| 2    | Scaffold Controllers & Routes        | 2025-09-06    | 2025-09-08    | Controllers, transformers and routes implemented | Basic curl sample in README, scaffold code committed  | `scaffold/api-endpoints`          |
+| 3    | Implement GET Loan Summary           | 2025-09-09    | 2025-09-11    | GET works; expected JSON returned; 404 path covered | Passing feature tests, curl example in README        | `feature/get-loan-summary`        |
+| 4    | Implement POST Loan Application      | 2025-09-12    | 2025-09-14    | POST validates and creates record; 422 on validation errors | Tests green, request/response examples logged      | `feature/post-loan-application`   |
+| 5    | CI & Regression Testing              | 2025-09-15    | 2025-09-17    | CI green; regression suite passing               | Screenshot of CI status; test reports in `test-reports/` | `chore/ci-and-tests`              |
+| 6    | Final Documentation                  | 2025-09-18    | 2025-09-20    | README includes examples + links + “how to test” | README updated with examples, CI badge                | `docs/finalize`                   |
 
 ---
 
-## Endpoint Sketches (for reference)
+## Endpoint Sketches
 
 ```http
 GET /api/v1/customers/{id}/loan-summary
-Accept: application/json
-
 200 OK
 {
   "customer_id": 123,
-  "loan": {
-    "loan_id": 456,
-    "principal": 10000.00,
-    "interest_rate": 0.08,
-    "terms_months": 24,
-    "start_date": "2025-06-01",
-    "end_date": "2027-05-31",
-    "status": "approved"
-  }
+  "loan": { … }
 }
-
 POST /api/v1/loan-applications
-Content-Type: application/json
-Accept: application/json
-
-{
-  "customer_id": 123,
-  "requested_amount": 10000.00,
-  "terms_months": 24,
-  "purpose": "Small business working capital"
-}
-
 201 Created
-Location: /api/v1/loan-applications/789
-{
-  "application_id": 789,
-  "customer_id": 123,
-  "requested_amount": 10000.00,
-  "terms_months": 24,
-  "purpose": "Small business working capital",
-  "status": "submitted",
-  "created_at": "2025-09-06T12:34:56Z"
-}
+{ … }
