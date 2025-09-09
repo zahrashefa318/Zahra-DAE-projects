@@ -1,12 +1,9 @@
 
 ## 📅 Daily Progress Log
 
-_Add one dated entry each time you make progress. Include short notes, outputs, and links to branches or pull requests. Use fenced code blocks (` ``` `) for logs or commands._
 
-### ✅ Example Entry
-
-**📆 Date:** 2025-09-03  
-**🛠️ Task:** Integrated structured logging into backend API.
+**📆 Date:** 2025-09-09  
+**🛠️ Task:** What is REST FULL API and why should be used.
 
 **🔍 Evidence:**
 
@@ -19,13 +16,24 @@ _Add one dated entry each time you make progress. Include short notes, outputs, 
     ```
 
 **📝 Notes:**  
-Learned how to configure environment variables securely with a `.env` file.
+Learnt What is state and what is the difference between restfull api apps and restless statefull apps.
 
 ---
 
-## 🧱 Entry Template (copy and update each time)
+## 🧱 Entry Template 
 
-Use this section to document each technical update you make. Replace the placeholders.
+- A RESTful API is an implementation of the REST (Representational State Transfer) architectural style. 
+- It enables communication between client and server in a stateless manner, meaning each HTTP request is processed independently, without relying on prior interactions.
+- State refers to any information a system remembers from previous operations—such as user interactions, data in memory, variables, or internal status. 
+- If a system remembers or uses that data in future operations, it's stateful.
+In REST (Representational State Transfer)
+- •	Here, state typically refers to the state of a resource, not the application or server session.
+- • The core idea: the server sends a representation of a resource’s state (like product details, account balance, etc.) to the client over HTTP . 
+- •	The client can then use this representation to change its own application state—for example, displaying it or allowing updates.
+- So in REST, state is tied to resources (e.g., a user's information), not to session memory or workflow continuity.
+- In stateless(REST FULL) apps the state is saved in client but in statefull(RESTLESS) apps the state is saved in servers.
+
+
 
 **📆 Date:** YYYY-MM-DD  
 **🛠️ Task:** _What did you do?_
