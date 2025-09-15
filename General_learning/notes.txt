@@ -133,8 +133,8 @@ owner:
 
 how can i code a secure logout  without returning by browser erokeys in app\http\controllers
 
-
-
+------------------------------------------------
+Laravel’s Mailables + SMTP transport (via Gmail):
 for sending payment schedule to customer email via google account:
 1:install google authenticator in your phone
 2:enalble two-step verification in security section of your google account
@@ -149,6 +149,12 @@ MAIL_PASSWORD=THE_16_CHAR_APP_PASSWORD
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS=yourgmail@gmail.com
 MAIL_FROM_NAME="${APP_NAME}"
+
+6:creat mailable controller and its view through artisan cli:
+php artisan make:mail PaymentScheduleMail --markdown=emails.payment_schedule
+
+
+
 
 -------------------------------
 
@@ -229,6 +235,36 @@ in order to make a pull request to make changes on some other person repository:
 4 : open a pull request
 5 : Add title and message
 6: create pull request
+
+-------------------------------------------------------------
+
+Clicking “Denied Customers” showed the whole dashboard in the section
+• Why: The controller sometimes returned a redirect for AJAX. Browsers don’t auto-follow server redirects inside $.ajax; you just get the redirected page’s HTML injected.
+• Fix: Never redirect for these AJAX list calls. Always return the partial with collect() as the default: $grouped->get($status, collect()). Then the partial renders (empty or not). 
+Laravel
++2
+api.jquery.com
++2
+
+“Not assigned yet.” didn’t appear
+• Why: Because of the redirect above, Blade’s empty state never ran; also the partial used the same collapse id as the parent, which could hide content.
+• Fix: Keep the response as the partial, and in Blade use @forelse … @empty … @endforelse for the empty row. It reliably shows once customer is an empty collection. 
+Rappasoft
+
+Duplicate id="placeholderSection" inside the partial
+• Why: The inner partial reused the same collapse target id as the dashboard, so Bootstrap’s collapse toggles acted on the wrong element.
+• Fix: Remove the id in the partial (or make it unique). The parent keeps #placeholderSection; the partial just renders content. 
+Bootstrap
+
+Right-click delete menu was inconsistent after AJAX loads
+• Why: Browser’s default context menu wasn’t always suppressed, and handlers bound before .html() replacement don’t apply to new nodes.
+• Fix: Use a delegated contextmenu listener on document (or container) and call event.preventDefault() to suppress the native menu; keep handlers outside the replaced fragment so they continue to work after AJAX. 
+MDN Web Docs
++1
+
+(Heads-up) Approved row click vs POST route
+• Why: Row click does a GET, but approvedCustomer is defined as POST, which can 405/redirect in some setups.
+• Fix: Provide a GET detail route for viewing approved customers (keep POST for state changes), or submit a form via JS for POST. This aligns with Laravel’s routing for HTTP verbs.
 
 
 
