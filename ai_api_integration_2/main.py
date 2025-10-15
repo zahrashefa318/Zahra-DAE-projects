@@ -4,11 +4,12 @@ from pydantic import BaseModel
 from typing import List , Dict , Optional , Any
 from enum import Enum
 from html import escape
+import httpx
 
 class outFormat(str , Enum):
     html="html"
     markdown="markdown"
-
+#--------------the format of client's request body----------
 class tableRequest(BaseModel):
     format:outFormat=outFormat.html
     columns:Optional[list[str]]=None
@@ -32,7 +33,7 @@ def arrange_columns(rows:List[Dict[str,Any]], columns:Optional[List[str]]=None)-
                 cols.append(k)
     return cols
 
-#------Function for Formatting data as html table---------------
+#------Function for Formatting data as html table for giving response or out put for the client that has requested---------------
 def to_html(rows:List[Dict[str,Any]], columns:List[str])->str:
     # CSS + wrapper so the header sticks and borders look clean
     css = """
@@ -60,7 +61,7 @@ def to_html(rows:List[Dict[str,Any]], columns:List[str])->str:
     tableBody="<tbody>"+"".join(trs)+"</tbody>"
     return f"""{css}<div class="tm-wrap"><table class="tm">{tableHeader}{tableBody}</table></div>"""
 
-#--------Function for Formatting data as markdown table---------------
+#--------Function for Formatting data as markdown table for giving response to the client that has requested my api---------------
 def to_markdown(rows:List[Dict[str,Any]], columns:List[str])->str:
     def myMarkEscape(s:str)->str:
         return s.replace("|","\\|")
@@ -76,7 +77,7 @@ def to_markdown(rows:List[Dict[str,Any]], columns:List[str])->str:
         lines.append("| "+" | ".join(tds)+" |")
     return "\n".join(lines)
 
-#-------------End Point-------------------------------
+#-------------End Point the url that client uses to make request and get response for making tabular display of his data-------------------------------
 @app.post('/ZahraTable')
 def make_table(req:tableRequest):
     rows=req.data
@@ -92,6 +93,21 @@ def make_table(req:tableRequest):
     else:
         md=to_markdown(rows, columns)
         return Response(content=md , media_type="text/plain")
+    
+#---Integrated with a public fake API(https://jsonplaceholder.typicode.com/users) in order to make a get request for fake data fetch.-
+@app.get("/demo/jsonplaceholder")
+async def demo_jsonplaceholder():
+    url="https://jsonplaceholder.typicode.com/users"
+    async with httpx.AsyncClient(timeout=5.0)as client: #--------creates a http client session-----(httpx is a python http client library and AsyncClient is a class from that library)
+        r= await client.get(url)
+        r.raise_for_status()
+        users=r.json()
+    rows=[{"name":u.get("name"), "email":u.get("email"), "company":(u.get("company")) or {}.get("name")} for u in users]
+    columns=["name", "email", "company"]
+    return Response(content=to_html(rows,columns), media_type="text/html")
+
+
+
     
     
 
