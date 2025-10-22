@@ -1,0 +1,127 @@
+* [33mf657229[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m Ignore zip archives
+* [33m3e46e75[m Added javascript_1 and react_1 folders, and included documentation on how to create a pull request.
+* [33mcdfe387[m Learnt how to make a Pull Request.
+*   [33mc0bd53f[m Merge pull request #3 from AntoTheSol/main
+[32m|[m[33m\[m  
+[32m|[m * [33m2526b0c[m Added Gabe.txt
+[32m|[m[32m/[m  
+*   [33m13288ff[m Merge pull request #1 from Jnapfx/master
+[34m|[m[35m\[m  
+[34m|[m * [33m75000ac[m testing pull request
+[34m|[m[34m/[m  
+* [33mbe82cc6[m Updated the learning folder by taking first step of learning of RESFUL API architectural style.
+* [33me6d9b84[m The files and contents in the learning folder have been organized and are ready to be used as a learning process record.
+* [33m17c9bbf[m PLAN file for REST API updated
+* [33mf93b94b[m REST API selceted for the project(FMFB), learning/PLAN.md
+* [33m04bae85[m Specific folders for each schology course have been added.
+* [33mec349c1[m Architecture Design Records for framework, datastorage and ORM has been added.
+* [33m7dad775[m Defining a sortNums function without using the default sort function . Co authored by Craig Weinstein
+* [33m77fa707[m about.md updated
+* [33m0f48891[m Git hub portfolio reform.
+* [33m98ace96[m logo changed
+* [33m56f8777[m Troublshooting 2
+* [33m968685a[m Troubleshooting
+* [33m55053ce[m some changes have been made on portfolio
+* [33m8b8f649[m url correction
+* [33m291001a[m Trigger Pages rebuild
+* [33ma3d81ac[m Update portfolio content
+* [33mb2f60a1[m Git hub cleaned up.
+* [33m9d94d0a[m scond folder deleted
+* [33m59eedd6[m Rebuild Pages after submodule cleanup
+* [33m8aa343e[m Reset the git hub Portfolio, first try.
+*   [33m704a8f1[m Merge commit 'Working on service, form request and controller modules for loan application form '
+[36m|[m[1;31m\[m  
+[36m|[m * [33m078c769[m Squashed 'SecondProject/' changes from 9e15754..b7756ef
+* [1;31m|[m [33mc76c5e9[m Merge commit 'Signature input field has been added to loan application form and weekly status update has been prepared.'
+[1;32m|[m[1;31m\[m[1;31m|[m 
+[1;32m|[m * [33md032a08[m Squashed 'SecondProject/' changes from 32be6f7..9e15754
+* [1;33m|[m [33m6ab921b[m Merge commit 'Errors for customer list in loan officer dashboard has been solved.'
+[1;34m|[m[1;33m\[m[1;33m|[m 
+[1;34m|[m * [33mcf8f3d7[m Squashed 'SecondProject/' changes from 9f5c617..32be6f7
+* [1;35m|[m [33m323c22a[m Merge commit 'Loan Application Form blade has been done .'
+[1;36m|[m[1;35m\[m[1;35m|[m 
+[1;36m|[m * [33m1c17cf9[m Squashed 'SecondProject/' changes from f23d02d..9f5c617
+* [31m|[m [33m354c38c[m Merge commit 'Loan Application Form is in progress!'
+[32m|[m[31m\[m[31m|[m 
+[32m|[m * [33m611ea50[m Squashed 'SecondProject/' changes from 2721e3f..f23d02d
+* [33m|[m [33md8348b4[m Merge commit 'List of customers is ready for loan officer dashboard'
+[34m|[m[33m\[m[33m|[m 
+[34m|[m * [33m79a8557[m Squashed 'SecondProject/' changes from 7d19d06..2721e3f
+* [35m|[m [33mf431eb4[m Merge commit 'Loan Officer dashboard data is in progress'
+[36m|[m[35m\[m[35m|[m 
+[36m|[m * [33m9180ef7[m Squashed 'SecondProject/' changes from e90bd20..7d19d06
+* [1;31m|[m [33mba90040[m Merge commit 'summerized customer info as a list is in progress for loan officer dashboard'
+[1;32m|[m[1;31m\[m[1;31m|[m 
+[1;32m|[m * [33m3499ec1[m Squashed 'SecondProject/' changes from c87e794..e90bd20
+* [1;33m|[m [33m9c977a8[m Merge commit 'Weekly status update added.'
+[1;34m|[m[1;33m\[m[1;33m|[m 
+[1;34m|[m * [33m3baac5c[m Squashed 'SecondProject/' changes from 353812f..c87e794
+* [1;35m|[m [33md699ea6[m Merge commit 'Table describs and arrays have been defined.'
+[1;36m|[m[1;35m\[m[1;35m|[m 
+[1;36m|[m * [33m7422dd1[m Squashed 'SecondProject/' changes from 7c88d2f..353812f
+* [31m|[m [33mcc72ffe[m Merge commit 'Customer and addresses tables populated with data through GUI,'
+[32m|[m[31m\[m[31m|[m 
+[32m|[m * [33mf19ad50[m Squashed 'SecondProject/' changes from 05fde8e..7c88d2f
+* [33m|[m [33m3a43ced[m Merge commit 'Populating customer and addresses tables with data through GUI is in progress'
+[34m|[m[33m\[m[33m|[m 
+[34m|[m * [33md687e48[m Squashed 'SecondProject/' changes from b7fcb11..05fde8e
+* [35m|[m [33m7d7aa6e[m Merge commit 'Data sanitization and validation is in progress both server side and client side.'
+[36m|[m[35m\[m[35m|[m 
+[36m|[m * [33m1320c69[m Squashed 'SecondProject/' changes from d566a3d..b7fcb11
+* [1;31m|[m [33md1b010d[m Merge commit '35844f4614966e3a4d14d9bb4bc464e5079a2bb2'
+[1;32m|[m[1;31m\[m[1;31m|[m 
+[1;32m|[m * [33m35844f4[m Squashed 'SecondProject/' changes from 4b5f68f..d566a3d
+* [1;33m|[m [33m5981728[m Merge commit '4aaef3b73955c5a6b89e9064ad5b13ed77baa4f3'
+[1;34m|[m[1;33m\[m[1;33m|[m 
+[1;34m|[m * [33m4aaef3b[m Squashed 'SecondProject/' changes from 6d721b5..4b5f68f
+* [1;35m|[m [33me0ecad5[m Moved ERModelDraft1.pdf into SecondProject/FMFBLogics folder
+* [1;35m|[m [33m71db140[m Moved ERModelDraft1.pdf from Second_Semester_updates to SecondProject
+[1;35m|[m[1;35m/[m  
+* [33m361ebdc[m Squashed 'SecondProject/' changes from beaee03..6d721b5
+* [33mcf78b47[m Delete ScondProject directory
+* [33m8bda2af[m Merge commit 'ade98c876f016ea6638207b2556f4dcc9e22465a' as 'SecondProject'
+* [33m06da34c[m Third semester project added.
+* [33m468177d[m Links added to my Portfolio
+* [33me09f51c[m Portfolio Troubleshooting
+* [33mec9ff79[m Portfolio updated
+* [33ma5d0100[m Second semester finalization report and adding essential files to my portfolio.
+* [33md6a3522[m Number sorting python code has been done without asking help from AI and without using python builtIn function for sorting.
+*   [33mc804ab4[m Merge branch 'master' of https://github.com/zahrashefa318/Zahra-DAE-projects
+[1;36m|[m[31m\[m  
+[1;36m|[m * [33m44f6d36[m Update index.md
+[1;36m|[m * [33m551947c[m Update index.md
+[1;36m|[m * [33mea32249[m Update _config.yml
+* [31m|[m [33m6d228b9[m All documentaion required for semester two has been added.
+[31m|[m[31m/[m  
+* [33m5453ecd[m Creating GitHub Pages
+* [33m4d3d661[m setting up git hub pages
+* [33m3edc3ac[m Project plan , algorithm and flowchart updated.
+* [33m139fc7e[m  Update project plan and creat flow chart with figma.
+* [33m5e2734b[m Integrate Laravel into project plan
+* [33m8c29d75[m chore(career): begin investigation of suitable future roles
+* [33mc9ac614[m chore: acknowledge career role and plan upskilling
+* [33m4bda353[m Project Complition Report
+* [33ma688024[m Troubleshooted
+* [33m673b958[m All Assignments done
+* [33m13afb68[m ALL_CAPS variable , finally block and writing errors into log file have been applied
+* [33m75d9713[m DocStrigs added, exceptions handled, a for loop changed to while , trounleshooted
+* [33m2a1935c[m DocStrings added and troubleshoot
+* [33m510bde9[m apply new design elements and fix logic errors
+* [33mcc72392[m Implemented remaining functionalities, including user authentication and data validation. All core components are now complete and ready for final testing.
+* [33m0d198df[m  Managing login and logout routes
+* [33mf2fcf43[m - Finalized all tasks outlined in the Unix1 module. - Verified functionality through testing and ensured compliance with project requirements. - Updated documentation to reflect the current state of the project. - Project is now ready for the next phase of development or review.
+* [33m8f76b84[m Completed implementation of all required arithmetic functions on both frontend and backend
+* [33m79efa4c[m feat(arithmetic): add percentage, average, and summation functions
+* [33m5aedfc2[m feat(sum): Implement number summation and result display
+* [33mf906200[m feat: Implement number input and HTTP request functions
+* [33m742f323[m submit Prompt Engineering Assignment
+* [33m6a7e0a7[m  Implemented multiplication table method, defined route in views, and styled the table and result page
+* [33m1ba31c5[m Work in progress: Backend logic development and UI design updates
+* [33mc1e5783[m Create multiplicationTable function in simpleArithmetic module; design result page for displaying user arithmetic results; add views.py for view functions and register it in __init__.py Flask app setup
+* [33mfe59482[m Design landing, home, and signup pages; implement login/signup logic; modularize app
+* [33m7b2f3f2[m Project plan added.
+* [33ma2749f6[m I have pushed my second project flow chart and algorithm.
+* [33m617c503[m Updated README file
+* [33m9e3bf4b[m Update README.md
+* [33mbc3a30b[m Update README.md
+* [33m16288cf[m Update README.md
