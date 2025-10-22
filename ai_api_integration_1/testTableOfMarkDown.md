@@ -1,0 +1,5 @@
+
+| name | age | city |
+| --- | --- | --- |
+| Alice | 30 |  |
+| Bob | 25 | NYC |

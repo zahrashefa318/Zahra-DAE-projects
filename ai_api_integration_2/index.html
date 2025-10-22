@@ -1,0 +1,25 @@
+<!doctype html>
+<meta charset="utf-8" />
+<h3>Table POST demo</h3>
+<button id="go">Make Table</button>
+<div id="out"></div>
+<script>
+document.getElementById('go').onclick = async () => {
+  const body = {
+    format: "html",
+    data: [
+      { name: "Alice", age: 30,phone:203418110,email:"zahrashefa@gmail.com" },
+      { name: "Bob", age: 25, city: "NYC" }
+    ]
+  };
+  const r = await fetch("http://127.0.0.1:8000/ZahraTable", {
+    method: "POST",
+    headers: { "Content-Type": "application/json",
+                "z_api_key":"zahra-key"
+     },
+    body: JSON.stringify(body)
+  }); // fetch POST from the browser
+  const html = await r.text();
+  document.getElementById("out").innerHTML = html; // inject HTML
+};
+</script>
