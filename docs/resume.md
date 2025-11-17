@@ -24,6 +24,7 @@ layout: single
 - Data Structures
 - CCNA1-CCNA4
 - Network Security
+- Backend web development
 
 
 ---
@@ -31,19 +32,25 @@ layout: single
 
 ## 🛠️ Technical Skills
 
-### Programming Languages
-- **Python** -  Flask/TKinter
+### Programming Languages and Technologies
+- **Python** -  Flask/TKinter/FastAPI
 - **PHP** - Laravel
-- **JavaScript** - DOM
-- **SQL** - Database design, query optimization
+- **JavaScript** - DOM/React
+- **MySQL** - Database design, query optimization,Eloquent ORM
+- **RESTFUL API**
+- **Unit and Integration Tests**
+
 
 ###  Platforms & Tools
 - Flask
+- FastAPI
 - Laravel
 - Figma
-- Git hub
+- GitHub
 - VS code
 - MySQL Workbench
+- Markdown
+- Canva
 
 
 ---
@@ -51,7 +58,7 @@ layout: single
 ## 🏆 Certifications & Training
 
 **In Progress:**
-- Backend engineer
+- Full Stack Web Developer
 
 **Completed:**
 - Certified Java(2012)
@@ -59,6 +66,7 @@ layout: single
 - Certified Data Structure(2012)
 - Certified Visual Basic(2012)
 - Certified Information System(2012)
+- Certified Backend web development
 
 
 

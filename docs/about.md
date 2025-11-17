@@ -12,8 +12,8 @@ layout: single
 ## My Journey in Full Stack Software Engineering
 
 
-I am a **Full-Stack Software Engineer** who thrives in **remote or hybrid environments**, where flexibility, collaboration, and work–life balance are valued.
-I design and develop secure, full-feature, user-friendly web and standalone applications, complete with elegant error-handling methods. Currently, I’m attending **DAE** as a trainee, with an expected graduation in **October 2025**.
+I am a **Full-Stack Web Developer** who thrives in **remote, hybrid and onsite  environments**, where flexibility, collaboration, and work–life balance are valued.
+I design and develop secure, full-feature, user-friendly web and standalone applications, complete with elegant error-handling methods. I recently graduated from **DAE** as a Backend Web Developer trainee in **October 2025**.I am actively seeking opportunities as a Full Stack Web Developer, Backend or Front-End Web Developer, and Software Engineer, with a strong interest in working on API development and AI-integration projects.
 
 
 ###  Personal Profile & Core Values  
@@ -41,13 +41,15 @@ Creates clear project plans, delivers timely status updates, and embeds clean do
 ### Technical Skills
 
 **Programming Languages:**
-- Python (Flask, Tkinter)
+- Python (Flask, Tkinter,FastAPI)
 - PHP (Laravel)
 - JavaScript (DOM)
 
 **Front-End Development Proficiencies:**
 - CSS 
 - HTML 
+- React
+- JavaScript Dom
 - Bootstrap 
 - NinjaTemplates
 
@@ -56,6 +58,10 @@ Creates clear project plans, delivers timely status updates, and embeds clean do
 - Database Normalization
 - SQLite
 - MySQL
+- RESTFUL API
+- Unit & Integration Test 
+- Data Structures
+
 
 ### Education & Certifications
 
@@ -64,7 +70,7 @@ Creates clear project plans, delivers timely status updates, and embeds clean do
 
 **District Arts & Education (DAE)**  
 *Cybersecurity & Backend Development Program*  
-*Expected Graduation: October 2025*
+* Graduated: October 2025*
 
 **Relevant Coursework:**
 - Java
@@ -72,6 +78,7 @@ Creates clear project plans, delivers timely status updates, and embeds clean do
 - Data Structures
 - CCNA1-CCNA4
 - Network Security
+- Backend Web Development
 
 ---
 

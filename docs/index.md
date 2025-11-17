@@ -10,7 +10,7 @@ permalink: /
   <div>
     <h1 style="margin:0; color:#2c3e50;">Zahra Shefa</h1>
     <p style="margin:.5rem 0; font-size:1.1rem; color:#34495e;">Full Stack Web Developer · </p>
-    <p style="margin:.5rem 0; line-height:1.6;">Specializing in frameworks such as Flask, Laravel and next focus on Django, React, and Node.js, I develop responsive, modular applications with intuitive interfaces and robust data handling, aligning with specific, impactful objectives.</p>
+    <p style="margin:.5rem 0; line-height:1.6;">Specializing in frameworks such as Flask, Laravel , FastAPI, React and next focus on Django, Java, and Node.js, I develop responsive, modular applications with intuitive interfaces and robust data handling, aligning with specific, impactful objectives.</p>
   </div>
 </div>
 
@@ -24,7 +24,7 @@ permalink: /
 
 ### Current Focus
 
-As I approach graduation in **October 2025**, I'm seeking opportunities in **Full Stack Software Engineering** roles where I can contribute to building robust  systems and continue learning from experienced software engineering professionals.
+Having graduated in **October 2025** from the six-month program at dae as a Backend Web Developer student, I'm seeking opportunities in **Full Stack Software Engineering** , **Full Stack Web Developer** , **Back-End Web Developer** or **Front-End Web Developer** roles where I can contribute to building robust  systems and continue learning from experienced software engineering professionals.
 
 ---
 
@@ -34,6 +34,7 @@ As I approach graduation in **October 2025**, I'm seeking opportunities in **Ful
 I am proud to share that I have graduated from the six-month program at dae — a program in which creativity, knowledge sharing, advanced and updated technology and friendship were integrated. I really enjoyed learning at dae. I’m not only grateful for the training and mentorship I received as a backend web developer, but also very fortunate to know such kind and respectful people among the dae staff—whose honest support helped us move closer to our goals.
 
 [▶ Watch my graduation speech video](https://www.youtube.com/watch?v=e8I9PjTgMRY)
+[LinkedIn Link](https://www.linkedin.com/feed/update/urn:li:activity:7396218558726205440/)
 
 
 
