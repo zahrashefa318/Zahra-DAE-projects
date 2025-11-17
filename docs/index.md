@@ -9,7 +9,7 @@ permalink: /
        style="max-width:160px; border-radius:50%; box-shadow:0 4px 12px rgba(0,0,0,.15);">
   <div>
     <h1 style="margin:0; color:#2c3e50;">Zahra Shefa</h1>
-    <p style="margin:.5rem 0; font-size:1.1rem; color:#34495e;">BackEnd Software Engineer Student · Graduating October 2025</p>
+    <p style="margin:.5rem 0; font-size:1.1rem; color:#34495e;">Full Stack Web Developer · </p>
     <p style="margin:.5rem 0; line-height:1.6;">Specializing in frameworks such as Flask, Laravel and next focus on Django, React, and Node.js, I develop responsive, modular applications with intuitive interfaces and robust data handling, aligning with specific, impactful objectives.</p>
   </div>
 </div>
@@ -29,7 +29,7 @@ As I approach graduation in **October 2025**, I'm seeking opportunities in **Ful
 ---
 
 ---
-### DAE Graduation Speech
+### Back-End Web Developer – Program Graduate (Oct 2025) – dae
 
 I am proud to share that I have graduated from the six-month program at dae — a program in which creativity, knowledge sharing, advanced and updated technology and friendship were integrated. I really enjoyed learning at dae. I’m not only grateful for the training and mentorship I received as a backend web developer, but also very fortunate to know such kind and respectful people among the dae staff—whose honest support helped us move closer to our goals.
 
