@@ -28,6 +28,15 @@ As I approach graduation in **October 2025**, I'm seeking opportunities in **Ful
 
 ---
 
+---
+### DAE Graduation Speech
+
+I am proud to share that I have graduated from the six-month program at dae — a program in which creativity, knowledge sharing, advanced and updated technology and friendship were integrated. I really enjoyed learning at dae. I’m not only grateful for the training and mentorship I received as a backend web developer, but also very fortunate to know such kind and respectful people among the dae staff—whose honest support helped us move closer to our goals.
+
+[▶ Watch my graduation speech video](https://www.youtube.com/watch?v=e8I9PjTgMRY)
+
+
+
 <div style="text-align:center; margin-top:2rem;">
   <img src="{{ '/assets/img/dae-logo.png' | relative_url }}" alt="DAE Logo" style="height:40px; opacity:0.8;">
 </div>
